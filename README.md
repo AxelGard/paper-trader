@@ -6,7 +6,7 @@ The application is using the [Alpaca API](https://alpaca.markets/) for trading.
 
 <img src="https://cdn.dribbble.com/users/1186632/screenshots/4153391/camel.jpg"
      alt="icon"
-     style="float: left; margin-right: 10px;" />
+     style="float: left; margin-right: 10px; width:30%;" />
 
 ## Authors
 
