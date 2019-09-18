@@ -1,6 +1,7 @@
-import datetime, pytz
+import datetime, pytz, random
 import api_comunication
 import stockpickr
+from init import ownd_stock
 
 def nasdaq_time():
     nyc_datetime = datetime.datetime.now(pytz.timezone('US/Eastern'))
@@ -19,10 +20,21 @@ def buy(qty, sym):
     endpoint = "orders"
     payload = stockpickr.buy_payload(qty, sym)
     buy_response = api_comunication.post_request(endpoint, payload)
-    print(buy_response.text)
+    if sym not in ownd_stock:
+        ownd_stock.append(sym)
+    return buy_response.text
 
 
 def sell(qty, sym):
     endpoint = "positions/"+ sym
     sell_response = api_comunication.delete_request(endpoint)
-    print(sell_response.text)
+    if sym in ownd_stock:
+        ownd_stock.remove(sym)
+    return sell_response.text
+
+
+def random_buy():
+    qty = random.randint(1, 10)
+    sym = stockpickr.random_pickr()
+    response = buy(qty, sym)
+    return response
