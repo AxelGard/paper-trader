@@ -6,8 +6,7 @@ The application is using the [Alpaca API](https://alpaca.markets/) for trading.
 
 <div style="width:150px; height:100px">
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Storck_Harbour_scene.jpg"
-     alt="icon"
-     style="float: left; margin-right: 10px; width='300' height='200';" />
+     width="200" height="400" alt="icon" style="float: left; margin-right: 10px;" />
 </div>
 
 ## Authors
