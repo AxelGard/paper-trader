@@ -37,4 +37,4 @@ def random_buy():
     qty = random.randint(1, 10)
     sym = stockpickr.random_pickr()
     response = buy(qty, sym)
-    return response
+    return response.text

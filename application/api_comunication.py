@@ -7,8 +7,8 @@ def api_link():
     return link
 
 def authentication_header():
-    api_key = "MyApiKey"
-    sec_key = "MySecKey"
+    api_key = ""
+    sec_key = ""
     header = {"APCA-API-KEY-ID":api_key,
               "APCA-API-SECRET-KEY":sec_key}
     return header
