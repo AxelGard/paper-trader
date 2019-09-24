@@ -16,7 +16,7 @@ The application is using the [Alpaca API](https://alpaca.markets/) for trading.
 
 ## License
 
-MIT License so feel free to use and modify as you like.
+MIT [LICENSE](LICENSE) so feel free to use and modify as you like.
 
 
 <!-- https://cdn.dribbble.com/users/1186632/screenshots/4153391/camel.jpg -->
