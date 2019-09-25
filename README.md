@@ -18,7 +18,7 @@ the latest patch :
 
 <div style="width:150px; height:100px">
 <img src="https://rimworldwiki.com/images/thumb/3/33/Randy.png/250px-Randy.png"
-     width="300" height="200" style="float: left; margin-right: 10px;" />
+     width="200" height="300" style="float: left; margin-right: 10px;" />
 </div>
 
 
@@ -91,6 +91,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-* [alpaca API](www.alpaca.market)
+* [alpaca API](https://alpaca.markets/)
 *
 *
