@@ -7,10 +7,8 @@ def api_link():
     return link
 
 def authentication_header():
-    api_key = ""
-    sec_key = ""
-    header = {"APCA-API-KEY-ID":api_key,
-              "APCA-API-SECRET-KEY":sec_key}
+    with open('key.json', 'r') as file:
+        header = json.load(file)
     return header
 
 def get_request(link):
@@ -54,8 +52,4 @@ def api_check(response, url):
     """ a test for api requests,
     takes a requests response and a str url and check's if OK,
     if not sends error msg """
-    if response.status_code == 200 or response.status_code == 204:
-        return True
-    else:
-        #api_error(str(url))
-        return False
+    return response.status_code == 200 or response.status_code == 204

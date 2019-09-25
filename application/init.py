@@ -13,6 +13,6 @@ if __name__ == '__main__':
         #time.sleep(random.randint(10, 900))
         time.sleep(5)
         print(trader.nasdaq_time())
-        print("is nasdaq open : " + trader.nasdaq_open())
+        print("is nasdaq open : ", trader.nasdaq_open())
         if trader.nasdaq_open():
             print(trader.random_buy())

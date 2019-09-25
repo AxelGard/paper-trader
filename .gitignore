@@ -1,5 +1,6 @@
-key.*
+key.json
 venv/
 __pycache__/
+*.pyc
 virtualenv/
 errorlog.txt

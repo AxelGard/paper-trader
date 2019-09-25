@@ -31,10 +31,3 @@ def sell(qty, sym):
     if sym in ownd_stock:
         ownd_stock.remove(sym)
     return sell_response.text
-
-
-def random_buy():
-    qty = random.randint(1, 10)
-    sym = stockpickr.random_pickr()
-    response = buy(qty, sym)
-    return response.text
