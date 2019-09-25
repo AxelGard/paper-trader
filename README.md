@@ -75,7 +75,7 @@ the code style is using pep8
 
 ## Versioning
 
-this code is just a side project i will some day make branch or tag with a stable release but for now there are not a stable version. 
+this code is just a side project i will some day make branch or tag with a stable release but for now there are not a stable version.
 
 ## Authors
 
