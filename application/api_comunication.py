@@ -7,7 +7,7 @@ def api_link():
     return link
 
 def authentication_header():
-    with open('../key.json', 'r') as file:
+    with open('key.json', 'r') as file:
         header = json.load(file)
     return header
 
