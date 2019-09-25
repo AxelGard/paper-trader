@@ -18,7 +18,7 @@ the latest patch :
 
 <div style="width:150px; height:100px">
 <img src="https://rimworldwiki.com/images/thumb/3/33/Randy.png/250px-Randy.png"
-     width="200" height="300" style="float: left; margin-right: 10px;" />
+     width="250" height="300" style="float: left; margin-right: 10px;" />
 </div>
 
 
