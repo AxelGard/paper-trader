@@ -1,6 +1,6 @@
 import random
 import time
-from init import ownd_stock
+from main import ownd_stock
 
 def buy_dict():
     dict_ = {
