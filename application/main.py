@@ -1,13 +1,10 @@
-import trader
 import datetime
 import time
 import random
-from traders import randy_random
+from traders import randy_random, trader
 
 #trader.buy(5, "GOOGL")
 #trader.sell(5, "GOOGL")
-
-ownd_stock = []
 
 if __name__ == '__main__':
     while (True):
@@ -16,4 +13,6 @@ if __name__ == '__main__':
         print(trader.nasdaq_time())
         print("is nasdaq open : ", trader.nasdaq_open())
         if trader.nasdaq_open():
-            print(randy_random.random_buy())
+            print(randy_random.random_buy().text)
+            time.sleep(random.randint(5, 100))
+            print(randy_random.random_sell().text)
