@@ -29,7 +29,7 @@ Why would we ever do this?
 Due to that just like a cat picking who will win a bunch of football matches we might be able to do well at random.
 There is still some things that need to be fixt in this patch.
 
-The name Randy random comes from the game [RimWorld](https://store.steampowered.com/app/294100/RimWorld/).
+The name Randy random comes from the game [RimWorld](https://store.steampowered.com/app/294100/RimWorld/).<br >
 [Randy Random](https://rimworldwiki.com/wiki/Randy_Random), is a wild storyteller whose main characteristic is triggering challenges at any time of any difficulty, to the extent of launching several dangerous threats all at the same time or consecutively.
 
 
