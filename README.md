@@ -61,7 +61,6 @@ this file you will need to enter your key's for the Alpaca API
   "APCA-API-KEY-ID":"your_pub_key",
   "APCA-API-SECRET-KEY":"your_private_key"
 }
-
 ```
 
 you can now deploy
@@ -70,15 +69,9 @@ you can now deploy
 ./run_application.sh
 ```
 
+### Coding style
 
-
-### And coding style tests
-
-the code style is using pep8
-
-```
-
-```
+the code style is using [pep8](https://pep8.org/)
 
 ## Deployment
 
