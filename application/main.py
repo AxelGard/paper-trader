@@ -1,13 +1,12 @@
 import datetime
 import time
 import random
-from traders import randy_random, trader, stockpickr
+from traders import randy_random, trader
 
 #trader.buy(5, "GOOGL")
 #trader.sell(5, "GOOGL")
 
 if __name__ == '__main__':
-    print(stockpickr.stock_list())
     while (True):
         time.sleep(random.randint(10, 120))
         #time.sleep(5)
