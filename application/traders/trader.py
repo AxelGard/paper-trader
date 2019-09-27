@@ -1,7 +1,6 @@
 import datetime, pytz, random
 import api_controller
-from traders import stockpickr
-from traders import randy_random
+import traders.stockpickr as stockpickr
 
 
 def ownd_stock():

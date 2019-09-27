@@ -1,8 +1,8 @@
 import random
 import datetime
 import time
-from traders import stockpickr
-from traders import trader
+import traders.stockpickr as stockpickr
+import traders.trader as trader
 
 def random_pickr():
     ran_pos = random.randint(0, len(stockpickr.stock_list())-1)
@@ -33,6 +33,6 @@ def run_randy():
         print(trader.nasdaq_time())
         print("is nasdaq open : ", trader.nasdaq_open())
         if trader.nasdaq_open():
-            print(randy_random.random_buy().text)
+            print(random_buy().text)
             time.sleep(random.randint(5, 50))
-            print(randy_random.random_sell().text)
+            print(random_sell().text)
