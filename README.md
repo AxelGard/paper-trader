@@ -47,22 +47,30 @@ python 3
 
 ### Installing
 
-for Unix :
+Unix :
 
 ```
 ./install_requirements.sh
+```
+
+in the folder application there are a file that is called key.json
+this file you will need to enter your key's for the Alpaca API
+
+```
+{
+  "APCA-API-KEY-ID":"your_pub_key",
+  "APCA-API-SECRET-KEY":"your_private_key"
+}
+
+```
+
+you can now deploy
+
+```
 ./run_application.sh
 ```
 
-## Running the tests
 
-
-
-### Break down into end to end tests
-
-```
-
-```
 
 ### And coding style tests
 
@@ -74,15 +82,19 @@ the code style is using pep8
 
 ## Deployment
 
+for know you can just run the **run_application.sh** for deploying the program.
+
+the file just runs the main.py file.
+
 ```
 ./run_application.sh
 ```
 
 ## Built With
 
-* [Python]() - The web framework used
-* [Alpaca API]() Dependency Management
-* []() - Used to generate RSS Feeds
+* [Python](https://www.python.org/) - language
+* [Alpaca API](https://alpaca.markets/) - the trading api
+* []() -
 
 ## Versioning
 

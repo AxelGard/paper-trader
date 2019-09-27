@@ -1,5 +1,5 @@
 import datetime, pytz, random
-import api_comunication
+import api_controller
 from . import stockpickr
 from traders import randy_random
 
@@ -24,7 +24,7 @@ def nasdaq_open():
 def buy(qty, sym):
     endpoint = "orders"
     payload = stockpickr.buy_payload(qty, sym)
-    buy_response = api_comunication.post_request(endpoint, payload)
+    buy_response = api_controller.post_request(endpoint, payload)
     #if sym not in ownd_stock:
         #ownd_stock.append(sym)
     return buy_response
@@ -33,7 +33,7 @@ def buy(qty, sym):
 def sell(qty, sym):
     global ownd_stock
     endpoint = "positions/"+ sym
-    sell_response = api_comunication.delete_request(endpoint)
+    sell_response = api_controller.delete_request(endpoint)
     #if sym in ownd_stock:
         #ownd_stock.remove(sym)
     return sell_response
