@@ -4,10 +4,12 @@ import traders.stockpickr as stockpickr
 
 
 def ownd_stock():
+    """ keeps ownd stocks i memmory """
     global ownd_stock
     return ownd_stock
 
 def nasdaq_time():
+    """ gets the time in us Eastern for nasdaq """
     nyc_datetime = datetime.datetime.now(pytz.timezone('US/Eastern'))
     fmt = '%H:%M:%S'
     hour = nyc_datetime.strftime('%H')
@@ -17,10 +19,13 @@ def nasdaq_time():
 
 
 def nasdaq_open():
+    """ returns if nasdaq is open """
     return 10 <= nasdaq_time()[0] <= 16
 
 
 def buy(qty, sym):
+    """ buys a stock.
+    takes int qty and a string sym """
     endpoint = "orders"
     payload = stockpickr.buy_payload(qty, sym)
     buy_response = api_controller.post_request(endpoint, payload)
@@ -30,6 +35,8 @@ def buy(qty, sym):
 
 
 def sell(qty, sym):
+    """ sells a stock.
+    takes int qty and a string sym"""
     global ownd_stock
     endpoint = "positions/"+ sym
     sell_response = api_controller.delete_request(endpoint)
