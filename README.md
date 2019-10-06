@@ -13,6 +13,8 @@ Shell](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.g
      style="float: left; margin-right: 10px;" />
 </div>
 
+Storck Harbour scene
+
 
 ## latest patch
 
