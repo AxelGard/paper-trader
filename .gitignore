@@ -4,6 +4,7 @@ venv/
 /__pycache__/
 *.pyc
 virtualenv/
+env/
 *.db
 errorlog.txt
 .idea/
