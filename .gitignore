@@ -6,3 +6,4 @@ venv/
 virtualenv/
 *.db
 errorlog.txt
+.idea/
