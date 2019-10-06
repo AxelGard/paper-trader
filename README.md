@@ -50,7 +50,7 @@ python 3
 
 ### Installing
 
-Unix :
+On macOS and Linux:
 
 ```
 ./install_requirements.sh
