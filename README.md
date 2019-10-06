@@ -69,6 +69,7 @@ this file you will need to enter your key's for the Alpaca API
 you can now deploy
 
 ```
+source env/bin/activate
 ./run_application.sh
 ```
 
@@ -83,6 +84,7 @@ for know you can just run the **run_application.sh** for deploying the program.
 the file just runs the main.py file.
 
 ```
+source env/bin/activate
 ./run_application.sh
 ```
 
