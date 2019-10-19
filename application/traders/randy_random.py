@@ -30,8 +30,8 @@ def random_sell():
 
 def run_randy():
     """ runs randy random for ever """
+    print(" [*] randy random is running ")
     while (True):
-        #print(" [*] randy random is running ")
         hour = 60*60
         time.sleep(random.randint(hour, hour*2))
         #time.sleep(5)
