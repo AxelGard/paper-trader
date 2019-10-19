@@ -38,6 +38,8 @@ def run_randy():
         trader.nasdaq_time()
         #print("is nasdaq open : ", trader.nasdaq_open())
         if trader.nasdaq_open():
-            random_buy()
+            buy = random_buy()
             time.sleep(random.randint(5, 50))
-            random_sell()
+            sell = random_sell()
+        print("BUY : ", buy, "\n SELL : ", sell)
+        print("-"*30)
