@@ -55,6 +55,8 @@ python 3
 On macOS and Linux:
 
 ```
+python3 -m venv env
+source env/bin/activate
 ./install_requirements.sh
 ```
 
