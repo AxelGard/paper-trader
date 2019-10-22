@@ -33,8 +33,8 @@ def run_randy():
     print(" [*] randy random is running ")
     while (True):
         hour = 60*60
-        #time.sleep(random.randint(hour, hour*2))
-        time.sleep(hour)
+        time.sleep(random.randint(hour, hour*2))
+        #time.sleep(hour)
         trader.nasdaq_time()
         #print("is nasdaq open : ", trader.nasdaq_open())
         if trader.nasdaq_open():
