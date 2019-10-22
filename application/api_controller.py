@@ -3,7 +3,7 @@ import requests
 
 def api_link():
     """ main the link for the API """
-    link = "https://paper-api.alpaca.markets/v2/"
+    link = "https://paper-api.alpaca.markets/"
     return link
 
 def authentication_header():

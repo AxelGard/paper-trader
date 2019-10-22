@@ -26,7 +26,7 @@ def nasdaq_open():
 def buy(qty, sym):
     """ buys a stock.
     takes int qty and a string sym """
-    endpoint = "orders"
+    endpoint = "v2/orders"
     payload = stockpickr.buy_payload(qty, sym)
     buy_response = api_controller.post_request(endpoint, payload)
     #if sym not in ownd_stock:
@@ -38,7 +38,7 @@ def sell(qty, sym):
     """ sells a stock.
     takes int qty and a string sym"""
     global ownd_stock
-    endpoint = "positions/"+ sym
+    endpoint = "v2/positions/"+ sym
     sell_response = api_controller.delete_request(endpoint)
     #if sym in ownd_stock:
         #ownd_stock.remove(sym)
