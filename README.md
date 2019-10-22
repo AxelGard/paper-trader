@@ -16,9 +16,26 @@ Shell](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.g
 Storck Harbour scene
 
 
-## latest patch
+## Traders
 
-the latest patch :
+### Cassandra Classic
+
+<div style="width:150px; height:100px">
+<img src="https://rimworldwiki.com/images/thumb/9/9d/Cassandra.png/250px-Cassandra.png"
+     width="250" height="300" style="float: left; margin-right: 10px;" />
+</div>
+
+my plan for Cassandra is to have a more Classical way of trading were it look to just make small profit buy remember what it bout at and then when made some profit sell.
+
+
+### Phoebe Chillax
+
+<div style="width:150px; height:100px">
+<img src="https://rimworldwiki.com/images/thumb/3/35/Phoebe.png/250px-Phoebe.png"
+     width="250" height="300" style="float: left; margin-right: 10px;" />
+</div>
+
+not clear
 
 ### randy random
 
@@ -117,5 +134,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 * [alpaca API](https://alpaca.markets/)
-*
+* [Rimworld](https://store.steampowered.com/app/294100/RimWorld/)
 *
