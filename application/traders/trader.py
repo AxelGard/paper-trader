@@ -43,3 +43,18 @@ def sell(qty, sym):
     #if sym in ownd_stock:
         #ownd_stock.remove(sym)
     return sell_response
+
+
+def value_of_stock(sym):
+    """ """
+    #https://data.alpaca.markets/
+    #v1/bars/day?
+    today = datetime.date.today()
+    payload = {
+        "symbols": sym,
+        "limit": 1,
+        "start": today.strftime("%Y-%m-%d"),
+        "end": today.strftime("%Y-%m-%d")
+    }
+    request = api_controller.get_data(payload)
+    return request

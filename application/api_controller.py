@@ -40,3 +40,20 @@ def delete_request(link, payload=None):
     url = api_link() + str(link)
     response = requests.delete(url, json=payload, headers=authentication_header())
     return response
+
+"""
+data API
+"""
+
+def data_api_link():
+    """ second api link """
+    endpoint = "https://data.alpaca.markets/v1/bars/day"
+    return endpoint
+
+def get_data(payload):
+    """  """
+    url = data_api_link()
+    header = authentication_header()
+    header.update(payload)
+    response = requests.get(url, headers=header)
+    return response
