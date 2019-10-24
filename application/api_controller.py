@@ -50,10 +50,9 @@ def data_api_link():
     endpoint = "https://data.alpaca.markets/v1/bars/day"
     return endpoint
 
-def get_data(payload):
+def get_data(params):
     """  """
     url = data_api_link()
     header = authentication_header()
-    header.update(payload)
-    response = requests.get(url, headers=header)
+    response = requests.get(url, params=params, headers=header)
     return response

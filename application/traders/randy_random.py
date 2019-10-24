@@ -24,7 +24,8 @@ def random_buy():
 def random_sell():
     """ sells random stock """
     qty = random.randint(1, 100)
-    sym = random_pickr()
+    ownd_stocks = trader.get_ownd_stocks()
+    sym = ownd_stocks[random.randint(0, len(ownd_stocks)-1)]
     response = trader.sell(qty, sym)
     return response
 
