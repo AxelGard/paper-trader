@@ -4,6 +4,10 @@ import time
 import traders.stockpickr as stockpickr
 import traders.trader as trader
 
+"""
+Randy Random
+"""
+
 def random_pickr():
     """ picks a random stock form stock list """
     ran_pos = random.randint(0, len(stockpickr.stock_list())-1)

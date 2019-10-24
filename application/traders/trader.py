@@ -3,10 +3,6 @@ import api_controller
 import traders.stockpickr as stockpickr
 import json
 
-def ownd_stock():
-    """ keeps ownd stocks i memmory """
-    global ownd_stock
-    return ownd_stock
 
 def nasdaq_time_old():
     """ gets the time in us Eastern for nasdaq """
@@ -42,10 +38,10 @@ def sell(qty, sym):
     takes int qty and a string sym"""
     global ownd_stock
     endpoint = "v2/positions/"+ sym
-    sell_response = api_controller.delete_request(endpoint)
+    response = api_controller.delete_request(endpoint)
     #if sym in ownd_stock:
         #ownd_stock.remove(sym)
-    return sell_response
+    return response
 
 
 def value_of_stock(sym):
@@ -66,6 +62,7 @@ def value_of_stock(sym):
 
     return dict_
 
+
 def get_position():
     response = api_controller.get_request("v2/positions").text
     lst = json.loads(response)
@@ -77,29 +74,44 @@ def get_position():
                 continue
     return lst
 
+
 def stock_position(sym):
     url = "v2/positions" + str(sym)
     response = api_controller.get_request(url).text
     return json.loads(response)
 
-def get_ownd_stocks():
+
+def ownd_stocks():
     lst = get_position()
     stock_lst = []
     for dict_ in lst:
         stock_lst.append(dict_['symbol'])
     return stock_lst
 
+
 def stock_today_plpc(sym):
     dict_ = stock_position(sym)
+    print(dict_)
     for key in dict_.keys():
         try:
             dict_[key] = float(dict_[key])
         except ValueError:
             continue
-    return float(dict_["unrealized_intraday_plpc"])
+    return dict_['unrealized_intraday_plpc']
 
+
+def nuclear_bomb():
+    print(" [*] --> NUCLEAR BOMB has been droped (!) ")
+    endpoint = "v2/positions"
+    response = api_controller.delete_request(endpoint)
+    return response
+
+
+def sell_list(lst):
+    for sym in lst:
+        sell(sym)
 
 """
 {'asset_id': '762eca63-f335-4d9c-bfc5-83607ad4d8e9', 'symbol': 'WYNN', 'exchange': 'NASDAQ', 'asset_class': 'us_equity', 'qty': '24', 'avg_entry_price': '115.86', 'side': 'long', 'market_value': '2784.48', 'cost_basis': '2780.64', 'unrealized_pl': '3.84',
-'unrealized_plpc': '0.0013809770412567', 'unrealized_intraday_pl': '7.68', 'unrealized_intraday_plpc': '0.0027657735522904', 'current_price': '116.02', 'lastday_price': '115.7', 'change_today': '0.0027657735522904'}
+ 'unrealized_plpc': '0.0013809770412567', 'unrealized_intraday_pl': '7.68', 'unrealized_intraday_plpc': '0.0027657735522904', 'current_price': '116.02', 'lastday_price': '115.7', 'change_today': '0.0027657735522904'}
 """
