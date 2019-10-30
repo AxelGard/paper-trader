@@ -5,5 +5,4 @@ import json
 
 if __name__ == '__main__':
     #randy_random.run_randy()
-    #trader.nuclear_bomb()
-    print(cassandra_classic.made_profit("GOOGL"))
+    cassandra_classic.run_cassandra()
