@@ -46,5 +46,5 @@ def run_randy():
             buy = random_buy()
             time.sleep(random.randint(5, 50))
             sell = random_sell()
-        print("BUY : ", buy.text, "\n\n\n SELL : ", sell.text)
-        print("-"*30)
+        #print("BUY : ", buy.text, "\n\n\n SELL : ", sell.text)
+        #print("-"*30)

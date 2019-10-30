@@ -28,8 +28,6 @@ def buy(qty, sym):
     endpoint = "v2/orders"
     payload = stockpickr.buy_payload(qty, sym)
     buy_response = api_controller.post_request(endpoint, payload)
-    #if sym not in ownd_stock:
-        #ownd_stock.append(sym)
     return buy_response
 
 
@@ -37,10 +35,8 @@ def sell(qty, sym):
     """ sells a stock.
     takes int qty and a string sym"""
     global ownd_stock
-    endpoint = "v2/positions/"+ sym
+    endpoint = "v2/positions/" + sym
     response = api_controller.delete_request(endpoint)
-    #if sym in ownd_stock:
-        #ownd_stock.remove(sym)
     return response
 
 
@@ -76,7 +72,8 @@ def get_position():
 
 
 def stock_position(sym):
-    url = "v2/positions" + str(sym)
+    url = "v1/positions/" + str(sym)
+
     response = api_controller.get_request(url).text
     return json.loads(response)
 
@@ -88,17 +85,21 @@ def ownd_stocks():
         stock_lst.append(dict_['symbol'])
     return stock_lst
 
-
-def stock_today_plpc(sym):
-    dict_ = stock_position(sym)
-    print(dict_)
+def clean_position(dict_):
     for key in dict_.keys():
         try:
             dict_[key] = float(dict_[key])
         except ValueError:
             continue
+    return dict_
+
+def stock_today_plpc(sym):
+    dict_ = clean_position(stock_position(sym))
     return dict_['unrealized_intraday_plpc']
 
+def stock_plpc(sym):
+    dict_ = clean_position(stock_position(sym))
+    return dict_['unrealized_plpc']
 
 def nuclear_bomb():
     print(" [*] --> NUCLEAR BOMB has been droped (!) ")
