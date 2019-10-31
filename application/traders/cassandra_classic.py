@@ -27,5 +27,7 @@ def run_cassandra():
         time.sleep(hour)
         if traders.trader.nasdaq_open():
             stock_profits = find_profit()
-            traders.trader.sell_list(stock_profits)
+            if stock_profits:
+                print(stock_profits)
+                traders.trader.sell_list(stock_profits)
             traders.randy_random.random_buy()

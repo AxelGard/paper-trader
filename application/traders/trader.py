@@ -109,6 +109,7 @@ def nuclear_bomb():
 
 
 def sell_list(lst):
+    print(lst)
     for sym in lst:
         sell(sym)
 
