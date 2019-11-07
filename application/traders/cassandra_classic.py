@@ -26,7 +26,7 @@ def run_cassandra():
     hour = 60 * 60
     print(" [*] Cassandra Classic is running ")
     while True:
-        #time.sleep(hour)
+        time.sleep(hour)
         if traders.trader.nasdaq_open():
             stock_profits = find_profit()
             if stock_profits:
