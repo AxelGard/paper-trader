@@ -7,7 +7,9 @@ Cassandra Classic
 
 def find_profit():
     lst = []
-    for stock in traders.trader.ownd_stocks():
+    ownd_stocks = traders.trader.ownd_stocks()
+    print(ownd_stocks)
+    for stock in ownd_stocks:
         if made_profit(stock):
             lst.append(stock)
     return lst
@@ -24,7 +26,7 @@ def run_cassandra():
     hour = 60 * 60
     print(" [*] Cassandra Classic is running ")
     while True:
-        time.sleep(hour)
+        #time.sleep(hour)
         if traders.trader.nasdaq_open():
             stock_profits = find_profit()
             if stock_profits:

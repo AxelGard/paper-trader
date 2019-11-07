@@ -77,6 +77,9 @@ def stock_position(sym):
     response = api_controller.get_request(url).text
     return json.loads(response)
 
+def ownd_stock_qty(sym):
+    position = clean_position(stock_position(sym))
+    return position['qty']
 
 def ownd_stocks():
     lst = get_position()
@@ -110,8 +113,17 @@ def nuclear_bomb():
 
 def sell_list(lst):
     print(lst)
+    test_sell = 1
     for sym in lst:
-        sell(sym)
+        response = sell(1, sym)
+        print(response.text)
+
+"""dict_ = json.loads(response.text)
+print(dict_['code'])
+if dict_['code'] == not_avialabel_error_code:
+    response = sell(test_sell, sym)
+    print(response.text)
+#print(response.text)"""
 
 """
 {'asset_id': '762eca63-f335-4d9c-bfc5-83607ad4d8e9', 'symbol': 'WYNN', 'exchange': 'NASDAQ', 'asset_class': 'us_equity', 'qty': '24', 'avg_entry_price': '115.86', 'side': 'long', 'market_value': '2784.48', 'cost_basis': '2780.64', 'unrealized_pl': '3.84',
