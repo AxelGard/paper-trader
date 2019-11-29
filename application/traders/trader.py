@@ -70,13 +70,7 @@ def get_position():
     portfolio = api().list_positions()
     portfolio_lst = []
     for position in portfolio:
-        raw_position = vars(position)['_raw']
-        position_dict = {}
-        for key in raw_position.keys():
-            try:
-                position_dict[key] = float(raw_position.key)
-            except ValueError:
-                continue
+        position_dict = clean_position(position)
         portfolio_lst.append(position_dict)
     return portfolio_lst
 
@@ -107,13 +101,16 @@ def ownd_stocks():
         stock_lst.append(dict_['symbol'])
     return stock_lst
 
-def clean_position(dict_):
-    for key in dict_.keys():
+def clean_position(position):
+    raw_position = vars(position)['_raw']
+    position_dict = {}
+    for key in raw_position.keys():
         try:
-            dict_[key] = float(dict_[key])
+            position_dict[key] = float(raw_position.key)
         except ValueError:
             continue
-    return dict_
+    return position_dict
+
 
 def stock_today_plpc(sym):
     dict_ = clean_position(stock_position(sym))
@@ -136,15 +133,3 @@ def sell_list(lst):
     for sym in lst:
         response = sell(1, sym)
         print(response.text)
-
-"""dict_ = json.loads(response.text)
-print(dict_['code'])
-if dict_['code'] == not_avialabel_error_code:
-    response = sell(test_sell, sym)
-    print(response.text)
-#print(response.text)"""
-
-"""
-{'asset_id': '762eca63-f335-4d9c-bfc5-83607ad4d8e9', 'symbol': 'WYNN', 'exchange': 'NASDAQ', 'asset_class': 'us_equity', 'qty': '24', 'avg_entry_price': '115.86', 'side': 'long', 'market_value': '2784.48', 'cost_basis': '2780.64', 'unrealized_pl': '3.84',
- 'unrealized_plpc': '0.0013809770412567', 'unrealized_intraday_pl': '7.68', 'unrealized_intraday_plpc': '0.0027657735522904', 'current_price': '116.02', 'lastday_price': '115.7', 'change_today': '0.0027657735522904'}
-"""
