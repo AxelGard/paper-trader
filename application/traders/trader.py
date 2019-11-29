@@ -66,6 +66,15 @@ def value_of_stock(sym):
     return value
 
 
+def get_week_pl_change(sym):
+    """ """
+    barset = api.get_barset(sym, 'day', limit=5)
+    bars = barset[sym]
+
+    week_open = bars[0].o
+    week_close = bars[-1].c
+    return (week_close - week_open) / week_open
+
 def get_position():
     portfolio = api().list_positions()
     portfolio_lst = []
