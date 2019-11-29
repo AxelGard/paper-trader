@@ -16,6 +16,19 @@ Shell](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.g
 Storck Harbour scene
 
 
+## versions
+
+#### v1.0 - first version
+
+**[v1.0](https://github.com/AxelGard/paper-trader/releases/tag/v1.0)** the first version of the paper-trader.
+This version of the paper-trader uses the alpaca REST API over https.
+In v1.0, I used python requests for sending orders.
+
+**be aware that this version has some problems and should not be used for professional trading.**
+
+feel free to use but at your own risk
+
+
 ## Traders
 
 The names comes from the game [RimWorld](https://store.steampowered.com/app/294100/RimWorld/).<br >
