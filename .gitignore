@@ -8,3 +8,4 @@ env/
 *.db
 errorlog.txt
 .idea/
+test.py
