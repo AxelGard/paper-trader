@@ -8,4 +8,5 @@ env/
 *.db
 errorlog.txt
 .idea/
+application/test.py
 test.py

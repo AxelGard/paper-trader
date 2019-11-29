@@ -1,8 +1,8 @@
 import alpaca_trade_api as tradeapi
 
 APCA_API_BASE_URL = "https://paper-api.alpaca.markets/"
-APCA_API_KEY_ID = "PK2BS2WDXP6ZGCH3E9D3"
-APCA_API_SECRET_KEY = "Gkxe3Go7ArZ4z4mR8z928ePV3dKnvzSTRPzfF/SA"
+APCA_API_KEY_ID = ""
+APCA_API_SECRET_KEY = ""
 
 
 if __name__ == '__main__':
