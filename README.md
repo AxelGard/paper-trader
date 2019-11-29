@@ -55,8 +55,6 @@ not clear
 
 ### randy random
 
-the randy random update
-
 <div style="width:150px; height:100px">
 <img src="https://rimworldwiki.com/images/thumb/3/33/Randy.png/250px-Randy.png"
      width="250" height="300" style="float: left; margin-right: 10px;" />
@@ -65,7 +63,7 @@ the randy random update
 With Randy random the application is able to buy and sell at random.
 Why would we ever do this?
 Due to that just like a cat picking who will win a bunch of football matches we might be able to do well at random.
-There is still some things that need to be fixt in this patch.
+
 
 ## Getting Started
 
@@ -125,7 +123,7 @@ source env/bin/activate
 
 * [Python](https://www.python.org/) - language
 * [Alpaca API](https://alpaca.markets/) - the trading api
-* []() -
+* [alpaca-trade-lib](https://github.com/alpacahq/alpaca-trade-api-python) - alpaca-trade-api-python
 
 ## Versioning
 
