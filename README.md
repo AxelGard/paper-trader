@@ -18,6 +18,9 @@ Storck Harbour scene
 
 ## Traders
 
+The names comes from the game [RimWorld](https://store.steampowered.com/app/294100/RimWorld/).<br >
+[Randy Random](https://rimworldwiki.com/wiki/Randy_Random), is a wild storyteller whose main characteristic is triggering challenges at any time of any difficulty, to the extent of launching several dangerous threats all at the same time or consecutively.
+
 ### Cassandra Classic
 
 <div style="width:150px; height:100px">
@@ -51,10 +54,6 @@ Why would we ever do this?
 Due to that just like a cat picking who will win a bunch of football matches we might be able to do well at random.
 There is still some things that need to be fixt in this patch.
 
-The name Randy random comes from the game [RimWorld](https://store.steampowered.com/app/294100/RimWorld/).<br >
-[Randy Random](https://rimworldwiki.com/wiki/Randy_Random), is a wild storyteller whose main characteristic is triggering challenges at any time of any difficulty, to the extent of launching several dangerous threats all at the same time or consecutively.
-
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -63,7 +62,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install
 
-```
+```bash
 python 3
 ```
 
@@ -71,7 +70,7 @@ python 3
 
 On macOS and Linux:
 
-```
+```bash
 python3 -m venv env
 source env/bin/activate
 ./install_requirements.sh
@@ -80,7 +79,7 @@ source env/bin/activate
 in the folder application there are a file that is called key.json
 this file you will need to enter your key's for the Alpaca API
 
-```
+```json
 {
   "APCA-API-KEY-ID":"your_pub_key",
   "APCA-API-SECRET-KEY":"your_private_key"
@@ -89,7 +88,7 @@ this file you will need to enter your key's for the Alpaca API
 
 you can now deploy
 
-```
+```bash
 source env/bin/activate
 ./run_application.sh
 ```
@@ -104,7 +103,7 @@ for know you can just run the **run_application.sh** for deploying the program.
 
 the file just runs the main.py file.
 
-```
+```bash
 source env/bin/activate
 ./run_application.sh
 ```
