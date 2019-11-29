@@ -16,11 +16,11 @@ Shell](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.g
 Storck Harbour scene
 
 
-## versions
+## Versions
 
-#### v1.0 - first version
+### [v1.0 - first version](https://github.com/AxelGard/paper-trader/releases/tag/v1.0)
 
-**[v1.0](https://github.com/AxelGard/paper-trader/releases/tag/v1.0)** the first version of the paper-trader.
+The first version of the paper-trader.
 This version of the paper-trader uses the alpaca REST API over https.
 In v1.0, I used python requests for sending orders.
 
