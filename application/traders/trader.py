@@ -10,6 +10,7 @@ def authentication_header():
         header = json.load(file)
     return header
 
+
 def api():
     auth_header = authentication_header()
     APCA_API_KEY_ID = str(auth_header["APCA-API-KEY-ID"])
@@ -27,7 +28,7 @@ def api():
 
 def nasdaq_open():
     """ returns if nasdaq is open """
-    clock = api.get_clock()
+    clock = api().get_clock()
     return clock.is_open
 
 

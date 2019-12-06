@@ -1,5 +1,6 @@
 import traders
 import time
+import math
 
 """
 Cassandra Classic
@@ -53,15 +54,35 @@ def market_made_loss(sym):
     return plpc < loss_margen
 
 
+def find_losing_stock():
+    losing_stocks = find_market_loss()
+    lost_lst = []
+    for sym in losing_stocks:
+        pl_change = traders.trader.get_week_pl_change(sym)
+        lost_lst.append(tuple(sym, pl_changel))
+    lost_lst = sorted(lost_lst, key=lambda l:l[1])
+    stock_at_lost = lost_lst[int(len(lost_lst)/2)]
+    return stock_at_lost[0]
+
+def investment_qty_lossing_stock(sym):
+    pl_change = traders.trader.get_week_pl_change(sym)
+    qty = int(math.sqrt(int(pl_changel)))
+    return qty
+
 def run_cassandra():
     """ runs Cassandra forever """
     hour = 60 * 60
     print(" [*] Cassandra Classic is running ")
     while True:
-        time.sleep(hour)
+        #time.sleep(hour)
         if traders.trader.nasdaq_open():
             stock_profits = find_profit()
             if stock_profits:
                 print(stock_profits)
                 traders.trader.sell_list(stock_profits)
-            traders.randy_random.random_buy()
+            losing_stock = find_losing_stock()
+            losing_stock_invst = investment_qty_lossing_stock(losing_stock)
+            print(losing_stock + " : " + losing_stock_invst)
+            traders.trader.buy(losing_stock_invst, losing_stock)
+            
+            #traders.randy_random.random_buy()
