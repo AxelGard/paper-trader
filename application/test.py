@@ -23,20 +23,18 @@ if __name__ == '__main__':
     api = tradeapi.REST(
         APCA_API_KEY_ID,
         APCA_API_SECRET_KEY,
-        'https://paper-api.alpaca.markets'
+        'https://paper-api.alpaca.markets', api_version='v2'
     )
 
     # Get account info
     account = api.get_account()
 
-    active_assets = api.list_assets(status='active')
-    # Filter the assets to NASDAQ
-    nasdaq_assets = [a for a in active_assets if a.exchange == 'NASDAQ']
+    order = api.submit_order(symbol, 1, 'sell', 'market', 'day')
+    print("Market order submitted.")
 
-    portfolio = api.list_positions()
-    portfolio = portfolio[:1]
-    for position in nasdaq_assets:
-        #print("{} shares of {}".format(position.qty, position.unrealized_plpc))
-        print(position.symbol)
-        #print(vars(position)['_raw'].keys())
-    print(vars(nasdaq_assets[0]))
+
+    symbol_bars = api.get_barset(symbol, 'minute', 1).df.iloc[0]
+    symbol_price = symbol_bars[symbol]['close']
+
+
+    order = api.submit_order(symbol, 1, 'sell', 'limit', 'day', symbol_price)

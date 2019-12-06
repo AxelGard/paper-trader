@@ -58,6 +58,11 @@ def sell(qty, sym):
     return order
 
 
+def short(sym):
+    "Short a stock, will need more investigation "
+    pass
+
+
 def value_of_stock(sym):
     """ takes a string sym.
     Gets and returns the stock value at close """
@@ -139,6 +144,14 @@ def nuclear_bomb():
     endpoint = "v2/positions"
     response = api_controller.delete_request(endpoint)
     return response
+
+
+def nuclear_bomb_2():
+    print(" [*] --> NUCLEAR BOMB has been droped (!) ")
+    stocks_sym = ownd_stocks()
+    for sym in stocks_sym:
+        qty = ownd_stock_qty(sym)
+        order = sell(qty, sym)
 
 
 def sell_list(lst):
