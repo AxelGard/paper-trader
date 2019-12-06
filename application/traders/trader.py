@@ -75,6 +75,7 @@ def get_week_pl_change(sym):
     week_close = bars[-1].c
     return (week_close - week_open) / week_open
 
+
 def get_position():
     portfolio = api().list_positions()
     portfolio_lst = []
@@ -82,6 +83,7 @@ def get_position():
         position_dict = clean_position(position)
         portfolio_lst.append(position_dict)
     return portfolio_lst
+
 
 def is_tradable(sym):
     asset = api().get_asset(sym)
@@ -110,6 +112,7 @@ def ownd_stocks():
         stock_lst.append(dict_['symbol'])
     return stock_lst
 
+
 def clean_position(position):
     raw_position = vars(position)['_raw']
     position_dict = {}
@@ -125,9 +128,11 @@ def stock_today_plpc(sym):
     dict_ = clean_position(stock_position(sym))
     return dict_['unrealized_intraday_plpc']
 
+
 def stock_plpc(sym):
     dict_ = clean_position(stock_position(sym))
     return dict_['unrealized_plpc']
+
 
 def nuclear_bomb():
     print(" [*] --> NUCLEAR BOMB has been droped (!) ")
