@@ -64,10 +64,12 @@ def find_losing_stock():
     stock_at_lost = lost_lst[int(len(lost_lst)/2)]
     return stock_at_lost[0]
 
+
 def investment_qty_lossing_stock(sym):
     pl_change = traders.trader.get_week_pl_change(sym)
     qty = int(math.sqrt(int(pl_changel)))
     return qty
+
 
 def run_cassandra():
     """ runs Cassandra forever """
@@ -84,5 +86,5 @@ def run_cassandra():
             losing_stock_invst = investment_qty_lossing_stock(losing_stock)
             print(losing_stock + " : " + losing_stock_invst)
             traders.trader.buy(losing_stock_invst, losing_stock)
-            
+
             #traders.randy_random.random_buy()

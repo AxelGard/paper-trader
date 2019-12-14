@@ -61,7 +61,13 @@ def sell(qty, sym):
 
 def short(sym):
     "Short a stock, will need more investigation "
-    pass
+    if is_shortable(sym):
+        pass
+
+
+def is_shortable(sym):
+    asset = api().get_asset(sym)
+    return asset.shortable
 
 
 def value_of_stock(sym):
@@ -93,7 +99,7 @@ def get_position():
 
 def is_tradable(sym):
     asset = api().get_asset(sym)
-    return aapl_asset.tradable
+    return asset.tradable
 
 
 def nasdaq_assets():
@@ -157,7 +163,7 @@ def nuclear_bomb_2():
 
 def sell_list(lst):
     print(lst)
-    test_sell = 1
     for sym in lst:
-        response = sell(1, sym)
-        print(response.text)
+        qty = int(ownd_stock_qty(sym))
+        response = sell(qty, sym)
+        #print(response.text)

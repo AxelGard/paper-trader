@@ -29,6 +29,14 @@ if __name__ == '__main__':
     # Get account info
     account = api.get_account()
 
+
+    asset = api.get_asset("AAPL")
+    position = api.get_position("PEP")
+    print(position)
+
+
+
+    """
     order = api.submit_order(symbol, 1, 'sell', 'market', 'day')
     print("Market order submitted.")
 
@@ -38,3 +46,4 @@ if __name__ == '__main__':
 
 
     order = api.submit_order(symbol, 1, 'sell', 'limit', 'day', symbol_price)
+    """
