@@ -133,7 +133,7 @@ this code is just a side project i will some day make branch or tag with a stabl
 
 * **Axel Gard** - *Initial work* - [AxelGard](https://github.com/AxelGard)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/AxelGard/paper-trader/graphs/contributors) who participated in this project.
 
 ## License
 
