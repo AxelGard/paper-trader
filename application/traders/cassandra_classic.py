@@ -71,20 +71,23 @@ def investment_qty_lossing_stock(sym):
     return qty
 
 
+def oneinstence_cassandra():
+    stock_profits = find_profit()
+    if stock_profits:
+        print(stock_profits)
+        traders.trader.sell_list(stock_profits)
+    losing_stock = find_losing_stock()
+    losing_stock_invst = investment_qty_lossing_stock(losing_stock)
+    print(losing_stock + " : " + losing_stock_invst)
+    traders.trader.buy(losing_stock_invst, losing_stock)
+    #traders.randy_random.random_buy()
+
+
 def run_cassandra():
     """ runs Cassandra forever """
     hour = 60 * 60
     print(" [*] Cassandra Classic is running ")
     while True:
-        #time.sleep(hour)
+        time.sleep(hour)
         if traders.trader.nasdaq_open():
-            stock_profits = find_profit()
-            if stock_profits:
-                print(stock_profits)
-                traders.trader.sell_list(stock_profits)
-            losing_stock = find_losing_stock()
-            losing_stock_invst = investment_qty_lossing_stock(losing_stock)
-            print(losing_stock + " : " + losing_stock_invst)
-            traders.trader.buy(losing_stock_invst, losing_stock)
-
-            #traders.randy_random.random_buy()
+            oneinstence_cassandra()

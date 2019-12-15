@@ -8,15 +8,18 @@ import traders.trader as trader
 Randy Random
 """
 
+
 def random_pickr():
     """ picks a random stock form stock list """
     ran_pos = random.randint(0, len(stockpickr.stock_list())-1)
     return stockpickr.stock_list()[ran_pos]
 
+
 def ownd_random():
     """ returns ownd stock """
     ran_pos = random.randint(0, len(trader.ownd_stock()))
     return stockpickr.stock_list()[ran_pos]
+
 
 def random_buy():
     """ buy a random stock """
@@ -24,6 +27,7 @@ def random_buy():
     sym = random_pickr()
     response = trader.buy(qty, sym)
     return response
+
 
 def random_sell():
     """ sells random stock """
@@ -33,18 +37,19 @@ def random_sell():
     response = trader.sell(qty, sym)
     return response
 
+
+def oneinstence_randy():
+    buy = random_buy()
+    time.sleep(random.randint(5, 50))
+    sell = random_sell()
+
+
 def run_randy():
     """ runs randy random for ever """
     print(" [*] randy random is running ")
+    hour = 60*60
     while (True):
-        hour = 60*60
         time.sleep(random.randint(hour, hour*3))
         #time.sleep(hour)
-        trader.nasdaq_time()
-        #print("is nasdaq open : ", trader.nasdaq_open())
-        if trader.nasdaq_open():
-            buy = random_buy()
-            time.sleep(random.randint(5, 50))
-            sell = random_sell()
-        #print("BUY : ", buy.text, "\n\n\n SELL : ", sell.text)
-        #print("-"*30)
+        if traders.trader.nasdaq_open():
+            oneinstence_randy()

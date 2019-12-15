@@ -151,14 +151,14 @@ def stock_plpc(sym):
     return dict_['unrealized_plpc']
 
 
-def nuclear_bomb():
+def nuclear_bomb_old():
     print(" [*] --> NUCLEAR BOMB has been droped (!) ")
     endpoint = "v2/positions"
     response = api_controller.delete_request(endpoint)
     return response
 
 
-def nuclear_bomb_2():
+def nuclear_bomb():
     print(" [*] --> NUCLEAR BOMB has been droped (!) ")
     stocks_sym = ownd_stocks()
     for sym in stocks_sym:

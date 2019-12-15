@@ -10,3 +10,7 @@ errorlog.txt
 .idea/
 application/test.py
 test.py
+application/traders/log/log.csv
+log.csv
+application/traders/log/log.json
+log.json
