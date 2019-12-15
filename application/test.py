@@ -47,3 +47,12 @@ if __name__ == '__main__':
 
     order = api.submit_order(symbol, 1, 'sell', 'limit', 'day', symbol_price)
     """
+
+
+def log(log_data):
+    file_path = "traders/log/log.csv"
+    with open(file_path, 'a') as fd:
+        fd.write(log_data)
+
+
+log("action2,sym2,qty2,time2")

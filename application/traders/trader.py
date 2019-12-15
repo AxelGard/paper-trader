@@ -1,4 +1,5 @@
 import datetime, pytz, random
+from time import gmtime, strftime
 import api_controller
 import traders.stockpickr as stockpickr
 import json
@@ -49,6 +50,8 @@ def buy(qty, sym):
     """ buys a stock.
     takes int qty and a string sym """
     order = order(sym, qty, 'buy')
+    tim = strftime("%Y-%m-%d %H:%M", gmtime())
+    log(format_log_action('buy',sym, qty, tim))
     return order
 
 
@@ -56,11 +59,13 @@ def sell(qty, sym):
     """ sells a stock.
     takes int qty and a string sym"""
     order = order(sym, qty, 'sell')
+    tim = strftime("%Y-%m-%d %H:%M", gmtime())
+    log(format_log_action('sell',sym, qty, tim))
     return order
 
 
 def short(sym):
-    "Short a stock, will need more investigation "
+    """Short a stock, will need more investigation """
     if is_shortable(sym):
         pass
 
@@ -169,8 +174,17 @@ def sell_list(lst):
         #print(response.text)
 
 
+def format_log_action(act, sym, qty, time_):
+    log_str = ""
+    log_data = [act, sym, qty, time_]
+    for data in log_data:
+        log_str += str(data) + ","
+    log_str = log_str[:-1]
+    return log_str
+
+
 def log(log_data):
-    file_path = "application/traders/log/log.csv"
+    file_path = "traders/log/log.csv"
     with open(file_path, 'a') as fd:
         fd.write(log_data)
 
