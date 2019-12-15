@@ -167,3 +167,15 @@ def sell_list(lst):
         qty = int(ownd_stock_qty(sym))
         response = sell(qty, sym)
         #print(response.text)
+
+
+def log(log_data):
+    file_path = 'application/traders/log/log.json'
+    data = json.load(open(file_pathp))
+    if type(data) is dict:
+        data = [data]
+
+    data.append(log_data)
+
+    with open(file_path, 'w') as outfile:
+        json.dump(data, outfile)
