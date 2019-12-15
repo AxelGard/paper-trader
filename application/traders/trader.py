@@ -170,6 +170,11 @@ def sell_list(lst):
 
 
 def log(log_data):
+    file_path = "application/traders/log/log.csv"
+    with open(file_path, 'a') as fd:
+        fd.write(log_data)
+
+    """
     file_path = 'application/traders/log/log.json'
     data = json.load(open(file_pathp))
     if type(data) is dict:
@@ -179,3 +184,4 @@ def log(log_data):
 
     with open(file_path, 'w') as outfile:
         json.dump(data, outfile)
+    """
