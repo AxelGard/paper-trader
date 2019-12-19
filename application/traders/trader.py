@@ -49,19 +49,19 @@ def order(sym, qty, beh):
 def buy(qty, sym):
     """ buys a stock.
     takes int qty and a string sym """
-    order = order(sym, qty, 'buy')
+    order_ = order(sym, qty, 'buy')
     tim = strftime("%Y-%m-%d %H:%M", gmtime())
     log(format_log_action('buy',sym, qty, tim))
-    return order
+    return order_
 
 
 def sell(qty, sym):
     """ sells a stock.
     takes int qty and a string sym"""
-    order = order(sym, qty, 'sell')
+    order_ = order(sym, qty, 'sell')
     tim = strftime("%Y-%m-%d %H:%M", gmtime())
     log(format_log_action('sell',sym, qty, tim))
-    return order
+    return order_
 
 
 def short(sym):
@@ -98,6 +98,7 @@ def get_position():
     portfolio_lst = []
     for position in portfolio:
         position_dict = clean_position(position)
+        position_dict['symbol'] = position.symbol
         portfolio_lst.append(position_dict)
     return portfolio_lst
 
@@ -135,7 +136,7 @@ def clean_position(position):
     position_dict = {}
     for key in raw_position.keys():
         try:
-            position_dict[key] = float(raw_position.key)
+            position_dict[key] = float(raw_position[key])
         except ValueError:
             continue
     return position_dict
@@ -187,15 +188,3 @@ def log(log_data):
     file_path = "traders/log/log.csv"
     with open(file_path, 'a') as fd:
         fd.write(log_data)
-
-    """
-    file_path = 'application/traders/log/log.json'
-    data = json.load(open(file_pathp))
-    if type(data) is dict:
-        data = [data]
-
-    data.append(log_data)
-
-    with open(file_path, 'w') as outfile:
-        json.dump(data, outfile)
-    """

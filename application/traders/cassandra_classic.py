@@ -59,7 +59,7 @@ def find_losing_stock():
     lost_lst = []
     for sym in losing_stocks:
         pl_change = traders.trader.get_week_pl_change(sym)
-        lost_lst.append(tuple(sym, pl_changel))
+        lost_lst.append(tuple(sym, pl_change))
     lost_lst = sorted(lost_lst, key=lambda l:l[1])
     stock_at_lost = lost_lst[int(len(lost_lst)/2)]
     return stock_at_lost[0]
@@ -67,7 +67,7 @@ def find_losing_stock():
 
 def investment_qty_lossing_stock(sym):
     pl_change = traders.trader.get_week_pl_change(sym)
-    qty = int(math.sqrt(int(pl_changel)))
+    qty = int(math.sqrt(int(pl_change)))
     return qty
 
 
@@ -88,6 +88,6 @@ def run_cassandra():
     hour = 60 * 60
     print(" [*] Cassandra Classic is running ")
     while True:
-        time.sleep(hour)
+        #time.sleep(hour)
         if traders.trader.nasdaq_open():
             oneinstence_cassandra()
