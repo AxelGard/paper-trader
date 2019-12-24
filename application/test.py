@@ -25,14 +25,21 @@ if __name__ == '__main__':
         APCA_API_SECRET_KEY,
         'https://paper-api.alpaca.markets', api_version='v2'
     )
-
+    sym = 'AAPL'
     # Get account info
-    account = api.get_account()
+    #account = api.get_account()
+    #print(api.get_barset(sym, 'day', limit=1))
 
+    barset = api.get_barset(sym, 'day', limit=5)
+    bars = barset[sym]
 
-    asset = api.get_asset("AAPL")
-    position = api.get_position("PEP")
-    print(position)
+    week_open = bars[0].o
+    week_close = bars[-1].c
+    print((week_close - week_open) / week_open)
+
+    #asset = api.get_asset("AAPL")
+    #position = api.get_position("PEP")
+    #print(position)
 
 
 

@@ -47,6 +47,7 @@ def oneinstence_randy():
 def run_randy():
     """ runs randy random for ever """
     print(" [*] randy random is running ")
+    print(" [*] is NASDAQ open " + str(traders.trader.nasdaq_open()))
     hour = 60*60
     while (True):
         time.sleep(random.randint(hour, hour*3))

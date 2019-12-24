@@ -1,4 +1,5 @@
-import datetime, pytz, random
+import datetime
+import random
 from time import gmtime, strftime
 import api_controller
 import traders.stockpickr as stockpickr
@@ -78,20 +79,22 @@ def is_shortable(sym):
 def value_of_stock(sym):
     """ takes a string sym.
     Gets and returns the stock value at close """
-    barset = api().get_barset(sym, 'day', limit=1)
+    barset = get_barset(sym, lim=1)
     value  = barset[sym][0].c # get stock at close
     return value
 
-
 def get_week_pl_change(sym):
     """ """
-    barset = api.get_barset(sym, 'day', limit=5)
+    barset = get_barset(sym, lim=5)
     bars = barset[sym]
 
     week_open = bars[0].o
     week_close = bars[-1].c
     return (week_close - week_open) / week_open
 
+
+def get_barset(sym, lim):
+    return api().get_barset(sym, 'day', limit=lim)
 
 def get_position():
     portfolio = api().list_positions()
@@ -168,12 +171,14 @@ def nuclear_bomb():
 
 
 def sell_list(lst):
-    print(lst)
+    #print(lst)
     for sym in lst:
         qty = int(ownd_stock_qty(sym))
-        response = sell(qty, sym)
-        #print(response.text)
-
+        if not sym == 'GOOGL':
+            response = sell(qty, sym)
+            #print(response.text)
+    print("sold list ")
+    return None
 
 def format_log_action(act, sym, qty, time_):
     log_str = ""
@@ -186,5 +191,6 @@ def format_log_action(act, sym, qty, time_):
 
 def log(log_data):
     file_path = "traders/log/log.csv"
+    print(log_data)
     with open(file_path, 'a') as fd:
         fd.write(log_data)

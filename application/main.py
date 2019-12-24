@@ -4,5 +4,6 @@ import json
 
 
 if __name__ == '__main__':
-    #randy_random.run_randy()
+    print(" [*] paper-trader started ")
     cassandra_classic.run_cassandra()
+    #randy_random.run_randy()
