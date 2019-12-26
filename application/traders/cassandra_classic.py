@@ -84,19 +84,17 @@ def investment_qty_lossing_stock(sym):
 
 
 def oneinstence_cassandra():
+    #find to sell
     stock_profits = find_profit()
     if stock_profits:
         print(stock_profits)
         traders.trader.sell_list(stock_profits)
-    print("find losing stock ")
     losing_stock = find_losing_stock()
-    print("losing_stock :")
-    print(losing_stock)
     losing_stock_invst = investment_qty_lossing_stock(losing_stock)
-
+    # find stock to buy
     print(str(losing_stock) + " : " + str(losing_stock_invst))
     traders.trader.buy(losing_stock_invst, losing_stock)
-    #traders.randy_random.random_buy()
+    
 
 
 def run_cassandra():

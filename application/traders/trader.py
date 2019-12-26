@@ -79,14 +79,16 @@ def is_shortable(sym):
 def value_of_stock(sym):
     """ takes a string sym.
     Gets and returns the stock value at close """
-    barset = get_barset(sym, lim=1)
-    value  = barset[sym][0].c # get stock at close
+    nr_days = 1
+    barset = get_barset(sym, nr_days)
+    value  = barset[0].c # get stock at close
     return value
 
 def get_week_pl_change(sym):
     """ """
-    barset = get_barset(sym, lim=5)
-    bars = barset[sym]
+    nr_days = 5
+    bars = get_barset(sym, nr_days)
+
 
     week_open = bars[0].o
     week_close = bars[-1].c
@@ -94,7 +96,8 @@ def get_week_pl_change(sym):
 
 
 def get_barset(sym, lim):
-    return api().get_barset(sym, 'day', limit=lim)
+    barset = api().get_barset(sym, 'day', lim)
+    return barset[sym]
 
 def get_position():
     portfolio = api().list_positions()
