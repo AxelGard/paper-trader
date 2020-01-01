@@ -1,3 +1,3 @@
 #runs program
-cd application/
+cd src/
 python3 main.py

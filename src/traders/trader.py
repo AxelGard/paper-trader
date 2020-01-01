@@ -176,8 +176,9 @@ def nuclear_bomb():
 def sell_list(lst):
     #print(lst)
     for sym in lst:
-        qty = int(ownd_stock_qty(sym))
-        if not sym == 'GOOGL':
+        #qty = int(ownd_stock_qty(sym)) # <--- has a bug for some reson 
+        qty = 1
+        if not sym == 'GOOGL': 
             response = sell(qty, sym)
             #print(response.text)
     print("sold list ")

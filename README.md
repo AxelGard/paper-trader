@@ -87,7 +87,7 @@ source env/bin/activate
 ./install_requirements.sh
 ```
 
-in the folder application there are a file that is called key.json
+in the folder **src** there are a file that is called **key.json**
 this file you will need to enter your key's for the Alpaca API
 
 ```json

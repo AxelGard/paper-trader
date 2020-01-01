@@ -8,6 +8,7 @@ env/
 *.db
 errorlog.txt
 .idea/
+.idea
 application/test.py
 test.py
 application/traders/log/log.csv
