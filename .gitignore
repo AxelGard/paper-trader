@@ -1,4 +1,5 @@
-application/key.json
+src/key.json
+key.json
 *.json
 venv/
 /__pycache__/
@@ -9,9 +10,9 @@ env/
 errorlog.txt
 .idea/
 .idea
-application/test.py
+src/test.py
 test.py
-application/traders/log/log.csv
+src/traders/log/log.csv
 log.csv
-application/traders/log/log.json
+src/traders/log/log.json
 log.json

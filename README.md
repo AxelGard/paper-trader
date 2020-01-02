@@ -13,10 +13,9 @@ Shell](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.g
      style="float: left; margin-right: 10px;" />
 </div>
 
-Storck Harbour scene
+Storck Harbour scene by Abraham Storck
 
-
-## Versions
+## Versioning
 
 ### [v1.0 - first version](https://github.com/AxelGard/paper-trader/releases/tag/v1.0)
 
@@ -87,7 +86,7 @@ source env/bin/activate
 ./install_requirements.sh
 ```
 
-in the folder **src** there are a file that is called **key.json**
+There are a file that is called **key.json**
 this file you will need to enter your key's for the Alpaca API
 
 ```json
@@ -101,7 +100,7 @@ you can now deploy
 
 ```bash
 source env/bin/activate
-./run_application.sh
+./run_paper_trader.sh
 ```
 
 ### Coding style
@@ -110,24 +109,20 @@ the code style is using [pep8](https://pep8.org/)
 
 ## Deployment
 
-for know you can just run the **run_application.sh** for deploying the program.
-
+for know you can just run the **run_paper_trader.sh** for deploying the program.
 the file just runs the main.py file.
+If you have already ran source command you don't need to run it again.
 
 ```bash
 source env/bin/activate
-./run_application.sh
+./run_paper_trader.sh
 ```
 
 ## Built With
 
 * [Python](https://www.python.org/) - language
 * [Alpaca API](https://alpaca.markets/) - the trading api
-* [alpaca-trade-lib](https://github.com/alpacahq/alpaca-trade-api-python) - alpaca-trade-api-python
-
-## Versioning
-
-this code is just a side project i will some day make branch or tag with a stable release but for now there are not a stable version.
+* [alpaca-trade-lib](https://github.com/alpacahq/alpaca-trade-api-python) - official trading-api lib
 
 ## Authors
 

@@ -8,7 +8,8 @@ import alpaca_trade_api as tradeapi
 
 
 def authentication_header():
-    with open('key.json', 'r') as file:
+    file_path = '../key.json'
+    with open(file_path, 'r') as file:
         header = json.load(file)
     return header
 
@@ -72,6 +73,7 @@ def short(sym):
 
 
 def is_shortable(sym):
+    """ checks if stock can be shorted """
     asset = api().get_asset(sym)
     return asset.shortable
 
@@ -85,21 +87,21 @@ def value_of_stock(sym):
     return value
 
 def get_week_pl_change(sym):
-    """ """
+    """ % change over a week """
     nr_days = 5
     bars = get_barset(sym, nr_days)
-
-
     week_open = bars[0].o
     week_close = bars[-1].c
     return (week_close - week_open) / week_open
 
 
 def get_barset(sym, lim):
+    """ get's barset for stock for time period lim """
     barset = api().get_barset(sym, 'day', lim)
     return barset[sym]
 
 def get_position():
+    """ """
     portfolio = api().list_positions()
     portfolio_lst = []
     for position in portfolio:
@@ -176,9 +178,9 @@ def nuclear_bomb():
 def sell_list(lst):
     #print(lst)
     for sym in lst:
-        #qty = int(ownd_stock_qty(sym)) # <--- has a bug for some reson 
+        #qty = int(ownd_stock_qty(sym)) # <--- has a bug for some reson
         qty = 1
-        if not sym == 'GOOGL': 
+        if not sym == 'GOOGL':
             response = sell(qty, sym)
             #print(response.text)
     print("sold list ")

@@ -13,7 +13,7 @@ def find_profit():
     #print(ownd_stocks)
     for stock in ownd_stocks:
         if made_profit(stock):
-            print("made profit --> " + stock)
+            print(" made profit --> " + stock)
             lst.append(stock)
     return lst
 
@@ -41,13 +41,13 @@ def made_loss(sym):
 
 def find_market_loss():
     market_assets = traders.trader.nasdaq_assets()
-    print("nasdaq_assets found ")
+    print(" nasdaq_assets found ")
     market_assets =  market_assets[:20]
     loss_lst = []
     for asset in market_assets:
         sym = asset.symbol
         if market_made_loss(sym):
-            print("market loss --> " + sym)
+            print(" market loss --> " + sym)
             loss_lst.append(sym)
     return loss_lst
 
@@ -79,7 +79,7 @@ def investment_qty_lossing_stock(sym):
     if qty is 0 or qty is float(0):
         qty = 2
 
-    print("buying " + str(qty) + " of " + sym)
+    print(" buying " + str(qty) + " of " + sym)
     return qty
 
 
@@ -94,7 +94,7 @@ def oneinstence_cassandra():
     # find stock to buy
     print(str(losing_stock) + " : " + str(losing_stock_invst))
     traders.trader.buy(losing_stock_invst, losing_stock)
-    
+
 
 
 def run_cassandra():
