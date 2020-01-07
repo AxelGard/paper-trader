@@ -3,7 +3,7 @@ import random
 from time import gmtime, strftime
 import api_controller
 import traders.stockpickr as stockpickr
-import json
+import json, csv
 import alpaca_trade_api as tradeapi
 
 
@@ -78,27 +78,28 @@ def is_shortable(sym):
     return asset.shortable
 
 
+def get_barset(sym, lim):
+    """ get's barset for stock for time period lim """
+    barset = api().get_barset(sym, 'day', limit=int(lim))
+    return barset
+
+
 def value_of_stock(sym):
     """ takes a string sym.
     Gets and returns the stock value at close """
     nr_days = 1
     barset = get_barset(sym, nr_days)
-    value  = barset[0].c # get stock at close
+    value  = barset[sym][0].c # get stock at close
     return value
 
 def get_week_pl_change(sym):
     """ % change over a week """
     nr_days = 5
     bars = get_barset(sym, nr_days)
-    week_open = bars[0].o
-    week_close = bars[-1].c
+    week_open = bars[sym][0].o
+    week_close = bars[sym][-1].c
     return (week_close - week_open) / week_open
 
-
-def get_barset(sym, lim):
-    """ get's barset for stock for time period lim """
-    barset = api().get_barset(sym, 'day', lim)
-    return barset[sym]
 
 def get_position():
     """ """
@@ -120,6 +121,11 @@ def nasdaq_assets():
     active_assets = api().list_assets(status='active')
     # Filter the assets to NASDAQ
     return [a for a in active_assets if a.exchange == 'NASDAQ']
+
+
+def exchange_lst():
+    lst = ['NASDAQ', 'NYSE', 'ARCA', 'BATS']
+    return lst
 
 
 def stock_position(sym):
@@ -192,11 +198,13 @@ def format_log_action(act, sym, qty, time_):
     for data in log_data:
         log_str += str(data) + ","
     log_str = log_str[:-1]
-    return log_str
+    return log_data
 
 
 def log(log_data):
     file_path = "traders/log/log.csv"
-    print(log_data)
-    with open(file_path, 'a') as fd:
-        fd.write(log_data)
+    print(" " + log_data)
+    with open(file_path, 'a') as file:
+        #fd.write(log_data)
+        writer = csv.writer(file)
+        writer.writerow(log_data)
