@@ -62,6 +62,8 @@ def find_losing_stock():
         pl_change = traders.trader.get_week_pl_change(sym)
         lost_lst += [(sym, pl_change)]
     lost_lst = sorted(lost_lst,key=lambda l:l[1])
+    print( " [-] losing stock : ")
+    print(lost_lst)
     #lost_lst = lost_lst[(len(lost_lst)-1)//2]
     return lost_lst[-1][0]
 
@@ -86,7 +88,6 @@ def oneinstence_cassandra():
     if stock_profits:
         traders.trader.sell_list(stock_profits)
     losing_stock = find_losing_stock()
-    print( " [-] losing stock : " + str(losing_stock))
     losing_stock_invst = investment_qty_lossing_stock(losing_stock)
     # find stock to buy
     traders.trader.buy(losing_stock_invst, losing_stock)
