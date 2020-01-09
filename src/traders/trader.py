@@ -80,7 +80,8 @@ def is_shortable(sym):
 
 def get_barset(sym, lim):
     """ get's barset for stock for time period lim """
-    barset = api().get_barset(sym, 'day', limit=int(lim))
+    lim = int(lim)
+    barset = api().get_barset(sym, 'day', limit=lim)
     return barset
 
 
@@ -89,6 +90,8 @@ def value_of_stock(sym):
     Gets and returns the stock value at close """
     nr_days = 1
     barset = get_barset(sym, nr_days)
+    if barset is None:
+        return 0
     value  = barset[sym][0].c # get stock at close
     return value
 
@@ -182,14 +185,12 @@ def nuclear_bomb():
 
 
 def sell_list(lst):
-    #print(lst)
     for sym in lst:
         #qty = int(ownd_stock_qty(sym)) # <--- has a bug for some reson
         qty = 1
-        if not sym == 'GOOGL':
+        if not sym == 'GOOGL': # google has problem selling, to few buyers?? 
             response = sell(qty, sym)
             #print(response.text)
-    print("sold list ")
     return None
 
 def format_log_action(act, sym, qty, time_):
@@ -203,7 +204,6 @@ def format_log_action(act, sym, qty, time_):
 
 def log(log_data):
     file_path = "traders/log/log.csv"
-    print(" " + log_data)
     with open(file_path, 'a') as file:
         #fd.write(log_data)
         writer = csv.writer(file)
