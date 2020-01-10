@@ -8,11 +8,19 @@ virtualenv/
 env/
 *.db
 errorlog.txt
-.idea/
-.idea
 src/test.py
 test.py
 src/traders/log/log.csv
 log.csv
 src/traders/log/log.json
 log.json
+
+
+# User-specific stuff .idea
+.idea/
+.idea/*
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
