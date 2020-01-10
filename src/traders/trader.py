@@ -95,6 +95,7 @@ def value_of_stock(sym):
     value  = barset[sym][0].c # get stock at close
     return value
 
+
 def get_week_pl_change(sym):
     """ % change over a week """
     nr_days = 5
@@ -188,10 +189,11 @@ def sell_list(lst):
     for sym in lst:
         #qty = int(ownd_stock_qty(sym)) # <--- has a bug for some reson
         qty = 1
-        if not sym == 'GOOGL': # google has problem selling, to few buyers?? 
+        if not sym == 'GOOGL': # google has problem selling, to few buyers??
             response = sell(qty, sym)
             #print(response.text)
     return None
+
 
 def format_log_action(act, sym, qty, time_):
     log_str = ""

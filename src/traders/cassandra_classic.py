@@ -64,8 +64,8 @@ def find_losing_stock():
     lost_lst = sorted(lost_lst,key=lambda l:l[1])
     print( " [-] losing stock : ")
     print(lost_lst)
-    #lost_lst = lost_lst[(len(lost_lst)-1)//2]
-    return lost_lst[-1][0]
+    lost_lst = lost_lst[(len(lost_lst)-1)//2]
+    return lost_lst[0]
 
 
 def investment_qty_lossing_stock(sym):
@@ -76,7 +76,7 @@ def investment_qty_lossing_stock(sym):
     if qty is 0 or qty is float(0):
         qty = 2
 
-    #print(" buying " + str(qty) + " of " + str(sym))
+    print(" [+] investment " + str(sym) + " : " + str(qty))
     return qty
 
 
@@ -100,7 +100,7 @@ def run_cassandra():
     print(" [*] Cassandra Classic is running ")
     print(" [*] is NASDAQ open " + str(traders.trader.nasdaq_open()))
     while True:
-        #time.sleep(hour)
         if traders.trader.nasdaq_open():
-            print(" [+] new instence started")
+            print(" [=] new instence started")
             oneinstence_cassandra()
+            time.sleep(hour//2)
