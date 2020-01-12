@@ -7,6 +7,8 @@ The application is using the [Alpaca API](https://alpaca.markets/) for trading.
 [![Open this project in Cloud
 Shell](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/AxelGard/paper-trader)
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/AxelGard/paper-trader)
+
 <div style="width:150px; height:100px">
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Storck_Harbour_scene.jpg"
      width="500" height="600" alt="https://en.wikipedia.org/wiki/Trade#/media/File:Storck_Harbour_scene.jpg"
