@@ -28,7 +28,7 @@ I have been testing the new version but soon it will be ready.
 I am still running the old version on my main server for trading,
 but when the new version is relist I will also move that server to v2.0.
 This also means that will be retiring the old version more or less,
-so I you found this project I wood recommend that you use v2.0 when it's has been released. 
+so you should use v2.0 when it's has been released. 
 
 ### [v1.0 - first version](https://github.com/AxelGard/paper-trader/releases/tag/v1.0)
 
