@@ -118,11 +118,11 @@ source env/bin/activate
 
 ### Coding style
 
-the code style is using [pep8](https://pep8.org/)
+the code style I am is using [pep8](https://pep8.org/)
 
 ## Deployment
 
-for know you can just run the **run_paper_trader.sh** for deploying the program.
+For now you can just run the **run_paper_trader.sh** for deploying the program.
 the file just runs the main.py file.
 If you have already ran source command you don't need to run it again.
 
