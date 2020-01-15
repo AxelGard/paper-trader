@@ -19,6 +19,17 @@ Storck Harbour scene by Abraham Storck
 
 ## Versioning
 
+### [v2.0 - coming soon](https://github.com/AxelGard/paper-trader/releases/tag/v1.0)
+
+I will be releasing version v2.0 soon in v2.0 the major change from v1.0 is that in v2.0 I have used the alpaca library for python.
+With that library I was able to add a lot of new features and fix bugs.
+Of curse you can already find most of v2.0 in the master branch.
+I have been testing the new version but soon it will be ready.
+I am still running the old version on my main server for trading,
+but when the new version is relist I will also move that server to v2.0.
+This also means that will be retiring the old version more or less,
+so you should use v2.0 when it's has been released.
+
 ### [v1.0 - first version](https://github.com/AxelGard/paper-trader/releases/tag/v1.0)
 
 The first version of the paper-trader.
@@ -32,8 +43,7 @@ feel free to use but at your own risk
 
 ## Traders
 
-The names comes from the game [RimWorld](https://store.steampowered.com/app/294100/RimWorld/).<br >
-[Randy Random](https://rimworldwiki.com/wiki/Randy_Random), is a wild storyteller whose main characteristic is triggering challenges at any time of any difficulty, to the extent of launching several dangerous threats all at the same time or consecutively.
+The names comes from the game [RimWorld](https://store.steampowered.com/app/294100/RimWorld/).
 
 ### Cassandra Classic
 
@@ -61,6 +71,7 @@ not clear
      width="250" height="300" style="float: left; margin-right: 10px;" />
 </div>
 
+[Randy Random](https://rimworldwiki.com/wiki/Randy_Random), is a wild storyteller whose main characteristic is triggering challenges at any time of any difficulty, to the extent of launching several dangerous threats all at the same time or consecutively.
 With Randy random the application is able to buy and sell at random.
 Why would we ever do this?
 Due to that just like a cat picking who will win a bunch of football matches we might be able to do well at random.
@@ -107,11 +118,11 @@ source env/bin/activate
 
 ### Coding style
 
-the code style is using [pep8](https://pep8.org/)
+the code style I am is using [pep8](https://pep8.org/)
 
 ## Deployment
 
-for know you can just run the **run_paper_trader.sh** for deploying the program.
+For now you can just run the **run_paper_trader.sh** for deploying the program.
 the file just runs the main.py file.
 If you have already ran source command you don't need to run it again.
 
