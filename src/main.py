@@ -1,30 +1,29 @@
-from traders import randy_random, trader, cassandra_classic
-import api_controller
-import json
+from traders import trader
+from traders import randy_random
+from traders import cassandra_classic
 
 
-if __name__ == '__main__':
-    #chunky
-    print("""
+# chunky
+terminal_text = """
                                       __                 __
  .-----.---.-.-----.-----.----.______|  |_.----.---.-.--|  |.-----.----.
  |  _  |  _  |  _  |  -__|   _|______|   _|   _|  _  |  _  ||  -__|   _|
  |   __|___._|   __|_____|__|        |____|__| |___._|_____||_____|__|
  |__|        |__|
 
-    """)
+"""
+
+
+if __name__ == '__main__':
+    print(terminal_text)
     print(" [*] paper-trader started ")
     cassandra_classic.run_cassandra()
-    #randy_random.run_randy()
-    print(" [*] paper-trader stoped")
+    print(" [*] paper-trader stopped")
 
 
 
-
-
-
-#Fraktur
-"""
+# Fraktur
+terminal_text_big = """
 
                                                                                   s                                ..
                                                                                  :8                              dF

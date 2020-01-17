@@ -19,27 +19,17 @@ Storck Harbour scene by Abraham Storck
 
 ## Versioning
 
-### [v2.0 - coming soon](https://github.com/AxelGard/paper-trader/releases/tag/v1.0)
+latest version path note: 
+### [v2.0 - alpaca lib](https://github.com/AxelGard/paper-trader/releases/tag/v2.0)
 
-I will be releasing version v2.0 soon in v2.0 the major change from v1.0 is that in v2.0 I have used the alpaca library for python.
-With that library I was able to add a lot of new features and fix bugs.
-Of curse you can already find most of v2.0 in the master branch.
-I have been testing the new version but soon it will be ready.
-I am still running the old version on my main server for trading,
-but when the new version is relist I will also move that server to v2.0.
-This also means that will be retiring the old version more or less,
-so you should use v2.0 when it's has been released.
+In the second version realise of paper-trader I have introduced the official alpaca lib for python.
+Because of this introduction of the library we are able to add a lot of new functions. 
+I have moved the key file so you might need to move that if you are using a older version. 
+There is also a lot of bug fixes in this version. 
 
-### [v1.0 - first version](https://github.com/AxelGard/paper-trader/releases/tag/v1.0)
+this version is a **more stable version then v1.0** so if you have been using v1.0 you **should upgrade**
 
-The first version of the paper-trader.
-This version of the paper-trader uses the alpaca REST API over https.
-In v1.0, I used python requests for sending orders.
-
-**be aware that this version has some problems and should not be used for professional trading.**
-
-feel free to use but at your own risk
-
+**[more](VERSIONS.md)**
 
 ## Traders
 
@@ -118,7 +108,9 @@ source env/bin/activate
 
 ### Coding style
 
-the code style I am is using [pep8](https://pep8.org/)
+the code style I am is using [pep8](https://pep8.org/).<br>
+If you want to build you own trader there are a lot of basic functions in the [trader.py](src/traders/trader.py).<br>
+So that you can build faster.
 
 ## Deployment
 
@@ -154,3 +146,21 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 * [alpaca API](https://alpaca.markets/)
 * [Rimworld](https://store.steampowered.com/app/294100/RimWorld/)
 *
+
+
+
+                                                                                  s                                ..
+                                                                                 :8                              dF
+     .d``                      .d``                       .u    .               .88       .u    .               '88bu.                    .u    .
+     @8Ne.   .u         u      @8Ne.   .u        .u     .d88B :@8c             :888ooo  .d88B :@8c        u     '*88888bu        .u     .d88B :@8c
+     %8888:u@88N     us888u.   %8888:u@88N    ud8888.  ="8888f8888r          -*8888888 ="8888f8888r    us888u.    ^"*8888N    ud8888.  ="8888f8888r
+      `888I  888. .@88 "8888"   `888I  888. :888'8888.   4888>'88"             8888      4888>'88"  .@88 "8888"  beWE "888L :888'8888.   4888>'88"
+       888I  888I 9888  9888     888I  888I d888 '88%"   4888> '               8888      4888> '    9888  9888   888E  888E d888 '88%"   4888> '
+       888I  888I 9888  9888     888I  888I 8888.+"      4888>                 8888      4888>      9888  9888   888E  888E 8888.+"      4888>
+     uW888L  888' 9888  9888   uW888L  888' 8888L       .d888L .+   88888888  .8888Lu=  .d888L .+   9888  9888   888E  888F 8888L       .d888L .+
+    '*88888Nu88P  9888  9888  '*88888Nu88P  '8888c. .+  ^"8888*"    88888888  ^%888*    ^"8888*"    9888  9888  .888N..888  '8888c. .+  ^"8888*"
+    ~ '88888F`    "888*""888" ~ '88888F`     "88888%       "Y"                  'Y"        "Y"      "888*""888"  `"888*""    "88888%       "Y"
+       888 ^       ^Y"   ^Y'     888 ^         "YP'                                                  ^Y"   ^Y'      ""         "YP'
+       *8E                       *8E
+       '8>                       '8>
+        "                         "

@@ -8,6 +8,7 @@ import alpaca_trade_api as tradeapi
 
 
 def authentication_header():
+    """ get's key and returns key in json format """
     file_path = '../key.json'
     with open(file_path, 'r') as file:
         header = json.load(file)
@@ -15,6 +16,7 @@ def authentication_header():
 
 
 def api():
+    """ returns object for api """
     auth_header = authentication_header()
     APCA_API_KEY_ID = str(auth_header["APCA-API-KEY-ID"])
     APCA_API_SECRET_KEY = str(auth_header["APCA-API-SECRET-KEY"])
@@ -29,8 +31,8 @@ def api():
     return api
 
 
-def nasdaq_open():
-    """ returns if nasdaq is open """
+def exchange_open():
+    """ returns if exchange is open """
     clock = api().get_clock()
     return clock.is_open
 
@@ -52,8 +54,7 @@ def buy(qty, sym):
     """ buys a stock.
     takes int qty and a string sym """
     order_ = order(sym, qty, 'buy')
-    tim = strftime("%Y-%m-%d %H:%M", gmtime())
-    log(format_log_action('buy',sym, qty, tim))
+    log(format_log_action('buy', sym, qty))
     return order_
 
 
@@ -61,8 +62,7 @@ def sell(qty, sym):
     """ sells a stock.
     takes int qty and a string sym"""
     order_ = order(sym, qty, 'sell')
-    tim = strftime("%Y-%m-%d %H:%M", gmtime())
-    log(format_log_action('sell',sym, qty, tim))
+    log(format_log_action('sell', sym, qty))
     return order_
 
 
@@ -76,6 +76,13 @@ def is_shortable(sym):
     """ checks if stock can be shorted """
     asset = api().get_asset(sym)
     return asset.shortable
+
+
+def can_borrow(sym):
+    """ check whether the name is currently
+    available to short at Alpaca """
+    asset = api().get_asset(sym)
+    return asset.easy_to_borrow
 
 
 def get_barset(sym, lim):
@@ -92,7 +99,7 @@ def value_of_stock(sym):
     barset = get_barset(sym, nr_days)
     if barset is None:
         return 0
-    value  = barset[sym][0].c # get stock at close
+    value = barset[sym][0].c  # get stock at close
     return value
 
 
@@ -106,42 +113,56 @@ def get_week_pl_change(sym):
 
 
 def get_position():
-    """ """
+    """ create a list of all owned position """
     portfolio = api().list_positions()
     portfolio_lst = []
     for position in portfolio:
-        position_dict = clean_position(position)
+        position_dict = reformat_position(position)
         position_dict['symbol'] = position.symbol
         portfolio_lst.append(position_dict)
     return portfolio_lst
 
 
 def is_tradable(sym):
+    """ return if the stock can be traded  """
     asset = api().get_asset(sym)
     return asset.tradable
 
 
 def nasdaq_assets():
+    """ creates a list of all avilabel assets on NASDAQ """
     active_assets = api().list_assets(status='active')
     # Filter the assets to NASDAQ
     return [a for a in active_assets if a.exchange == 'NASDAQ']
 
 
 def exchange_lst():
+    """ returns a list of stock exchanges
+    that is supported by alpaca """
     lst = ['NASDAQ', 'NYSE', 'ARCA', 'BATS']
     return lst
 
 
 def stock_position(sym):
+    """ takes str sym (needs to stock symbol)
+    returns position of stock """
     return api().get_position(sym)
 
 
-def ownd_stock_qty(sym):
-    position = clean_position(stock_position(sym))
+def owned_stock_qty(sym):
+    """ returns quantity of owned of a stock sym (str) """
+    position = reformat_position(stock_position(sym))
     return position['qty']
 
 
-def ownd_stocks():
+def current_price(sym):
+    """ returns the current price of given symbol (str) """
+    price = stock_position(sym)['current_price']
+    return price
+
+
+def owned_stocks():
+    """ returns a list of owned stocks """
     lst = get_position()
     stock_lst = []
     for dict_ in lst:
@@ -149,7 +170,8 @@ def ownd_stocks():
     return stock_lst
 
 
-def clean_position(position):
+def reformat_position(position):
+    """ reformat position to be float values """
     raw_position = vars(position)['_raw']
     position_dict = {}
     for key in raw_position.keys():
@@ -161,53 +183,54 @@ def clean_position(position):
 
 
 def stock_today_plpc(sym):
-    dict_ = clean_position(stock_position(sym))
+    """ stock today's profit/loss percent """
+    dict_ = reformat_position(stock_position(sym))
     return dict_['unrealized_intraday_plpc']
 
 
 def stock_plpc(sym):
-    dict_ = clean_position(stock_position(sym))
+    """ stock sym (str) Unrealized profit/loss percentage """
+    dict_ = reformat_position(stock_position(sym))
     return dict_['unrealized_plpc']
 
 
 def nuclear_bomb_old():
-    print(" [*] --> NUCLEAR BOMB has been droped (!) ")
+    """ old nuclear bomb solution"""
+    print(" [*] --> NUCLEAR BOMB has been dropped (!) ")
     endpoint = "v2/positions"
     response = api_controller.delete_request(endpoint)
     return response
 
 
 def nuclear_bomb():
-    print(" [*] --> NUCLEAR BOMB has been droped (!) ")
-    stocks_sym = ownd_stocks()
-    for sym in stocks_sym:
-        qty = ownd_stock_qty(sym)
-        order = sell(qty, sym)
+    """ nuclear bomb, sells all owned stocks """
+    print(" [*] --> NUCLEAR BOMB has been dropped (!) ")
+    stocks_sym = owned_stocks()
+    sell_list(stocks_sym)
 
 
 def sell_list(lst):
+    """ takes a list of symbols (str) and
+    sells all stocks in that list """
     for sym in lst:
-        qty = int(ownd_stock_qty(sym) % 10) # <--- has a bug for some reson
-        if qty < 1:
-            qty = 1
-        if not sym == 'GOOGL': # google has problem selling, to few buyers??
-            response = sell(qty, sym)
-            #print(response.text)
+        qty = int(owned_stock_qty(sym))
+        if not sym == 'GOOGL':  # google has problem selling, to few buyers??
+            sell(qty, sym)
     return None
 
 
-def format_log_action(act, sym, qty, time_):
-    log_str = ""
+def format_log_action(act, sym, qty):
+    """ formats info for logging """
+    time_ = strftime("%Y-%m-%d %H:%M", gmtime())
     log_data = [act, sym, qty, time_]
-    for data in log_data:
-        log_str += str(data) + ","
-    log_str = log_str[:-1]
     return log_data
 
 
 def log(log_data):
+    """ writes log data to file """
     file_path = "traders/log/log.csv"
     with open(file_path, 'a') as file:
-        #fd.write(log_data)
+        # fd.write(log_data)
         writer = csv.writer(file)
         writer.writerow(log_data)
+    return None

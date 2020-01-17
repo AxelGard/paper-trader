@@ -9,10 +9,9 @@ Cassandra Classic
 
 def find_profit():
     lst = []
-    ownd_stocks = traders.trader.ownd_stocks()
-    for stock in ownd_stocks:
+    owned_stocks = traders.trader.owned_stocks()
+    for stock in owned_stocks:
         if made_profit(stock):
-            #print(" made profit --> " + stock)
             lst.append(stock)
     return lst
 
@@ -40,7 +39,7 @@ def made_loss(sym):
 
 def find_market_loss():
     market_assets = traders.trader.nasdaq_assets()
-    market_assets =  market_assets[:20]
+    market_assets = market_assets[:20]
     loss_lst = []
     for asset in market_assets:
         sym = asset.symbol
@@ -61,10 +60,10 @@ def find_losing_stock():
     for sym in losing_stocks:
         pl_change = traders.trader.get_week_pl_change(sym)
         lost_lst += [(sym, pl_change)]
-    lost_lst = sorted(lost_lst,key=lambda l:l[1])
-    print( " [-] losing stock : ")
-    print(lost_lst)
-    lost_lst = lost_lst[(len(lost_lst)-1)//2]
+    lost_lst = sorted(lost_lst, key=lambda l:l[1])
+    # print(" [-] losing stock : ")
+    # print(lost_lst)
+    lost_lst = lost_lst[len(lost_lst)%2]
     return lost_lst[0]
 
 
@@ -76,15 +75,15 @@ def investment_qty_lossing_stock(sym):
     if qty is 0 or qty is float(0):
         qty = 2
 
-    print(" [+] investment " + str(sym) + " : " + str(qty))
+    # print(" [+] investment " + str(sym) + " : " + str(qty))
     return qty
 
 
-def oneinstence_cassandra():
+def one_instance_cassandra():
     #find to sell
     stock_profits = find_profit()
-    print(" [-] stock profit lst : ")
-    print(stock_profits)
+    # print(" [-] stock profit lst : ")
+    # print(stock_profits)
     if stock_profits:
         traders.trader.sell_list(stock_profits)
     losing_stock = find_losing_stock()
@@ -93,14 +92,12 @@ def oneinstence_cassandra():
     traders.trader.buy(losing_stock_invst, losing_stock)
 
 
-
 def run_cassandra():
     """ runs Cassandra forever """
     hour = 60 * 60
     print(" [*] Cassandra Classic is running ")
-    print(" [*] is NASDAQ open " + str(traders.trader.nasdaq_open()))
+    # print(" [*] is NASDAQ open " + str(traders.trader.exchange_open()))
     while True:
-        if traders.trader.nasdaq_open():
-            print(" [=] new instence started")
-            oneinstence_cassandra()
+        if traders.trader.exchange_open():
+            one_instance_cassandra()
             time.sleep(hour//2)
