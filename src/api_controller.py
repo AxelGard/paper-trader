@@ -1,6 +1,14 @@
 import json
 import requests
 
+"""
+[*]==========================================================[*]
+    This file is shuld not be used any more,
+    its left for backward compatibility with v1.0 function.
+[*]==========================================================[*]
+"""
+
+
 def api_link():
     """ main the link for the API """
     link = "https://paper-api.alpaca.markets/"

@@ -2,6 +2,13 @@ import random
 import time
 import csv
 
+"""
+[*]==========================================================[*]
+    This file is shuld not be used any more,
+    its left for backward compatibility with v1.0 function.
+[*]==========================================================[*]
+"""
+
 def buy_dict():
     """ holds dict for buy """
     dict_ = {

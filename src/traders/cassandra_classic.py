@@ -70,7 +70,7 @@ def find_losing_stock():
 def investment_qty_lossing_stock(sym):
     pl_change = traders.trader.get_week_pl_change(sym)
     qty = int(math.sqrt(int(pl_change)))
-    if qty < 0:
+    if qty < 0: # shuld never happend sqrt shuld never be negativ 
         qty = -1 * qty
     if qty is 0 or qty is float(0):
         qty = 2
