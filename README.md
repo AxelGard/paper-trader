@@ -21,7 +21,7 @@ Storck Harbour scene by Abraham Storck
 
 latest version path note: 
 ### [v2.0 - alpaca lib](https://github.com/AxelGard/paper-trader/releases/tag/v2.0)
-
+beawere that this verson needs python 3.5 or newer to work. v1.0 works with 3.4 or lower but not 2. 
 In the second version realise of paper-trader I have introduced the official alpaca lib for python.
 Because of this introduction of the library we are able to add a lot of new functions. 
 I have moved the key file so you might need to move that if you are using a older version. 
