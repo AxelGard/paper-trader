@@ -48,13 +48,43 @@ def find_market_loss():
     return loss_lst
 
 
+def find_market_growth():
+    market_assets = traders.trader.nasdaq_assets()
+    market_assets = market_assets[:20]
+    loss_lst = []
+    for asset in market_assets:
+        sym = asset.symbol
+        if market_made_loss(sym):
+            loss_lst.append(sym)
+    return loss_lst
+
+
 def market_made_loss(sym):
     plpc = traders.trader.value_of_stock(sym)
     loss_margen = 5
     return plpc < loss_margen
 
 
+def market_made_profit(sym):
+    plpc = traders.trader.value_of_stock(sym)
+    loss_margen = 5
+    return plpc > loss_margen
+
+
 def find_losing_stock():
+    losing_stocks = find_market_loss()
+    lost_lst = []
+    for sym in losing_stocks:
+        pl_change = traders.trader.get_week_pl_change(sym)
+        lost_lst += [(sym, pl_change)]
+    lost_lst = sorted(lost_lst, key=lambda l:l[1])
+    # print(" [-] losing stock : ")
+    # print(lost_lst)
+    lost_lst = lost_lst[len(lost_lst)%2]
+    return lost_lst[0]
+
+
+def find_growing_stock():
     losing_stocks = find_market_loss()
     lost_lst = []
     for sym in losing_stocks:
@@ -96,7 +126,7 @@ def run_cassandra():
     """ runs Cassandra forever """
     hour = 60 * 60
     print(" [*] Cassandra Classic is running ")
-    # print(" [*] is NASDAQ open " + str(traders.trader.exchange_open()))
+    print(" [*] is NASDAQ open " + str(traders.trader.exchange_open()))
     while True:
         if traders.trader.exchange_open():
             one_instance_cassandra()
