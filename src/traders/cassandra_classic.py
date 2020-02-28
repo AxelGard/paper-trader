@@ -1,4 +1,6 @@
+#!/usr/bin/python3
 from traders.trader import trader
+from traders import randy_random
 import time
 import math
 
@@ -116,10 +118,12 @@ def one_instance_cassandra():
     # print(stock_profits)
     if stock_profits:
         trader.sell_list(stock_profits)
-    losing_stock = find_losing_stock()
-    losing_stock_invst = investment_qty_lossing_stock(losing_stock)
+    randy_random.random_buy()
+    #losing_stock = find_losing_stock()
+    #losing_stock_invst = investment_qty_lossing_stock(losing_stock)
+    
     # find stock to buy
-    trader.buy(losing_stock_invst, losing_stock)
+    #trader.buy(losing_stock_invst, losing_stock)
 
 
 def run_cassandra():
@@ -130,4 +134,4 @@ def run_cassandra():
     while True:
         if trader.exchange_open():
             one_instance_cassandra()
-            time.sleep(hour//2)
+            time.sleep(hour//4)

@@ -31,7 +31,7 @@ def stock_list():
     """ gets stocks from local stock list file
     and returns them in a list  """
     stock_list = []
-    stock_file = 'traders/lists/stock_list.csv'
+    stock_file = 'traders/trader/lists/stock_list.csv'
     with open(stock_file, 'rt') as f:
         reader = csv.reader(f)
         for row in reader:

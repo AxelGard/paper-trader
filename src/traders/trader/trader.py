@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import datetime
 import random
 from time import gmtime, strftime
@@ -219,7 +220,7 @@ def format_log_action(act, sym, qty):
 
 def log(log_data):
     """ writes log data to file """
-    file_path = "traders/log/log.csv"
+    file_path = "traders/trader/log/log.csv"
     with open(file_path, 'a') as file:
         # fd.write(log_data)
         writer = csv.writer(file)
