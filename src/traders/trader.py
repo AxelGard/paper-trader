@@ -1,7 +1,6 @@
 import datetime
 import random
 from time import gmtime, strftime
-import api_controller
 import traders.stockpickr as stockpickr
 import json, csv
 import alpaca_trade_api as tradeapi
@@ -192,14 +191,6 @@ def stock_plpc(sym):
     """ stock sym (str) Unrealized profit/loss percentage """
     dict_ = reformat_position(stock_position(sym))
     return dict_['unrealized_plpc']
-
-
-def nuclear_bomb_old():
-    """ old nuclear bomb solution"""
-    print(" [*] --> NUCLEAR BOMB has been dropped (!) ")
-    endpoint = "v2/positions"
-    response = api_controller.delete_request(endpoint)
-    return response
 
 
 def nuclear_bomb():
