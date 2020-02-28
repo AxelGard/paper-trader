@@ -1,7 +1,7 @@
 import datetime
 import random
 from time import gmtime, strftime
-import traders.stockpickr as stockpickr
+from traders.trader import stockpickr
 import json, csv
 import alpaca_trade_api as tradeapi
 

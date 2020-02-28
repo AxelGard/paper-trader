@@ -112,9 +112,9 @@ the code style I am is using [pep8](https://pep8.org/).<br>
 If you want to build you own trader there are a lot of basic functions in the [trader.py](src/traders/trader.py).<br>
 So that you can build faster.
 
-### File struct 
-```
-.
+### File structure 
+```bash
+paper-trader
 ├── env
 ├── install_requirements.sh
 ├── key.json
@@ -123,26 +123,25 @@ So that you can build faster.
 ├── requirements.txt
 ├── run_paper_trader.sh
 ├── src
-│   ├── api_controller.py
 │   ├── __init__.py
 │   ├── main.py
-│   ├── __pycache__
-│   ├── test.py
 │   └── traders
 │       ├── cassandra_classic.py
 │       ├── __init__.py
-│       ├── lists
-│       │   ├── stock_list_conservative.csv
-│       │   ├── stock_list.csv
-│       │   └── stock_list_long.csv
-│       ├── log
-│       │   ├── log.csv
-│       │   └── log-info.md
 │       ├── my_trader.py
 │       ├── phoebe_chillax.py
 │       ├── randy_random.py
-│       ├── stockpickr.py
-│       └── trader.py
+│       └── trader
+│           ├── __init__.py
+│           ├── lists
+│           │   ├── stock_list_conservative.csv
+│           │   ├── stock_list.csv
+│           │   └── stock_list_long.csv
+│           ├── log
+│           │   ├── log.csv
+│           │   └── log-info.md
+│           ├── stockpickr.py
+│           └── trader.py
 └── VERSIONS.md
 
 ```

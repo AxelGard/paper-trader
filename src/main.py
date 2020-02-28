@@ -1,4 +1,3 @@
-from traders import trader
 from traders import randy_random
 from traders import cassandra_classic
 
