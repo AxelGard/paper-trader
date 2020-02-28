@@ -1,4 +1,4 @@
-import traders
+import traders.trader as traders
 import time
 import math
 
