@@ -79,7 +79,7 @@ What things you need to install
 python 3
 ```
 
-### Installing
+### Installingen
 
 On macOS and Linux:
 
@@ -115,7 +115,6 @@ So that you can build faster.
 ### File structure 
 ```bash
 paper-trader
-├── env
 ├── install_requirements.sh
 ├── key.json
 ├── LICENSE
@@ -123,27 +122,24 @@ paper-trader
 ├── requirements.txt
 ├── run_paper_trader.sh
 ├── src
+│   ├── cassandra_classic.py
 │   ├── __init__.py
 │   ├── main.py
-│   └── traders
-│       ├── cassandra_classic.py
+│   ├── my_trader.py
+│   ├── phoebe_chillax.py
+│   ├── randy_random.py
+│   └── trader
 │       ├── __init__.py
-│       ├── my_trader.py
-│       ├── phoebe_chillax.py
-│       ├── randy_random.py
-│       └── trader
-│           ├── __init__.py
-│           ├── lists
-│           │   ├── stock_list_conservative.csv
-│           │   ├── stock_list.csv
-│           │   └── stock_list_long.csv
-│           ├── log
-│           │   ├── log.csv
-│           │   └── log-info.md
-│           ├── stockpickr.py
-│           └── trader.py
+│       ├── lists
+│       │   ├── stock_list_conservative.csv
+│       │   ├── stock_list.csv
+│       │   └── stock_list_long.csv
+│       ├── log
+│       │   ├── log.csv
+│       │   └── log-info.md
+│       ├── stockpickr.py
+│       └── trader.py
 └── VERSIONS.md
-
 ```
 
 
@@ -180,7 +176,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 * [alpaca API](https://alpaca.markets/)
 * [Rimworld](https://store.steampowered.com/app/294100/RimWorld/)
-*
+* font :: Fraktur
 
 
 

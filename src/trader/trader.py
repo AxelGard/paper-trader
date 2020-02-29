@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-import datetime
-import random
 from time import gmtime, strftime
-from traders.trader import stockpickr
 import json, csv
 import alpaca_trade_api as tradeapi
 

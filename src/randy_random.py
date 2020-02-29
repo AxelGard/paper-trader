@@ -1,8 +1,7 @@
 import random
-import datetime
 import time
-from traders.trader import stockpickr
-from traders.trader import trader
+from trader import stockpickr
+from trader import trader
 
 """
 Randy Random

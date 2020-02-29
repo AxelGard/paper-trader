@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from traders.trader import trader
-from traders import randy_random
+from trader import trader
+import randy_random
 import time
 import math
 
@@ -26,7 +26,7 @@ def made_profit(sym):
 
 def find_loss():
     lst = []
-    ownd_stocks = trader.ownd_stocks()
+    ownd_stocks = trader.owned_stocks()
     for stock in ownd_stocks:
         if made_loss(stock):
             lst.append(stock)
