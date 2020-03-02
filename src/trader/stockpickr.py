@@ -5,7 +5,7 @@ import csv
 """
 [*]==========================================================[*]
     This file is shuld not be used any more,
-    its left for backward compatibility with v1.0 function.
+    its left for backward compatibility with v1.0 functions.
 [*]==========================================================[*]
 """
 
@@ -31,7 +31,7 @@ def stock_list():
     """ gets stocks from local stock list file
     and returns them in a list  """
     stock_list = []
-    stock_file = 'traders/trader/lists/stock_list.csv'
+    stock_file = 'trader/lists/stock_list.csv'
     with open(stock_file, 'rt') as f:
         reader = csv.reader(f)
         for row in reader:
