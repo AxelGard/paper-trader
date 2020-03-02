@@ -1,5 +1,4 @@
-from traders import randy_random
-from traders import cassandra_classic
+import cassandra_classic
 
 
 # chunky
