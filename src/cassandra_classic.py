@@ -3,6 +3,7 @@ from trader import trader
 import randy_random
 import time
 import math
+from config import config_dict
 
 """
 Cassandra Classic
@@ -80,8 +81,9 @@ def find_losing_stock():
         pl_change = trader.get_week_pl_change(sym)
         lost_lst += [(sym, pl_change)]
     lost_lst = sorted(lost_lst, key=lambda l:l[1])
-    # print(" [-] losing stock : ")
-    # print(lost_lst)
+    if config_dict["DEBUG"]:
+        print(" [-] losing stock : ")
+        print(lost_lst)
     lost_lst = lost_lst[len(lost_lst)%2]
     return lost_lst[0]
 
@@ -93,8 +95,9 @@ def find_growing_stock():
         pl_change = trader.get_week_pl_change(sym)
         lost_lst += [(sym, pl_change)]
     lost_lst = sorted(lost_lst, key=lambda l:l[1])
-    # print(" [-] losing stock : ")
-    # print(lost_lst)
+    if config_dict["DEBUG"]:
+        print(" [-] losing stock : ")
+        print(lost_lst)
     lost_lst = lost_lst[len(lost_lst)%2]
     return lost_lst[0]
 
@@ -104,20 +107,24 @@ def investment_qty_lossing_stock(sym):
     qty = int(math.sqrt(int(pl_change)))
     if qty < 0: # should never happend sqrt should never be negative
         qty = -1 * qty
-    if qty is 0 or qty is float(0):
+    if qty == 0 or qty == float(0): # cast for 0, can be 0.0 
         qty = 2
-
-    # print(" [+] investment " + str(sym) + " : " + str(qty))
+    if config_dict["DEBUG"]:
+        print(" [+] investment " + str(sym) + " : " + str(qty))
     return qty
 
 
 def one_instance_cassandra():
     #find to sell
     stock_profits = find_profit()
-    # print(" [-] stock profit lst : ")
-    # print(stock_profits)
+    
+    if config_dict["DEBUG"]:
+        print(" [-] stock profit lst : ")
+        print(stock_profits)
+    
     if stock_profits:
         trader.sell_list(stock_profits)
+    
     randy_random.random_buy()
     #losing_stock = find_losing_stock()
     #losing_stock_invst = investment_qty_lossing_stock(losing_stock)
@@ -129,9 +136,11 @@ def one_instance_cassandra():
 def run_cassandra():
     """ runs Cassandra forever """
     hour = 60 * 60
+    wait = hour//4
     print(" [*] Cassandra Classic is running ")
-    print(" [*] is NASDAQ open " + str(trader.exchange_open()))
     while True:
+        if config_dict["DEBUG"]:
+            print(" [*] is NASDAQ open " + str(trader.exchange_open()))
         if trader.exchange_open():
             one_instance_cassandra()
-            time.sleep(hour//4)
+            time.sleep(wait)

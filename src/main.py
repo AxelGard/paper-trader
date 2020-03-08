@@ -1,3 +1,4 @@
+import config
 import cassandra_classic
 
 
@@ -15,6 +16,7 @@ terminal_text = """
 if __name__ == '__main__':
     print(terminal_text)
     print(" [*] paper-trader started ")
+    config.DevelopmentConfig()
     cassandra_classic.run_cassandra()
     print(" [*] paper-trader stopped")
 
