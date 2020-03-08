@@ -1,5 +1,5 @@
 import time
-from ..trader import trader
+from trader import trader
 
 
 """
