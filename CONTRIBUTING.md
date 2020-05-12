@@ -1,0 +1,1 @@
+# CONTRIBUTING to paper-trader
