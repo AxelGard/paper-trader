@@ -1,6 +1,6 @@
 import config
 import cassandra_classic
-
+import cira 
 
 # chunky
 terminal_text = """
@@ -11,7 +11,7 @@ terminal_text = """
  |__|        |__|
 
 """
-
+cira.KEY_FILE = "../key.json"
 
 if __name__ == '__main__':
     print(terminal_text)
