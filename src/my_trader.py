@@ -1,5 +1,5 @@
 import time
-from trader import trader
+import cira 
 
 
 """
@@ -16,8 +16,8 @@ def run_my_trader():
     """ runs  forever """
     hour = 60 * 60
     print(" [*] my_trader is running ")
-    print(" [*] is exchange open " + str(trader.exchange_open()))
+    print(" [*] is exchange open " + str(cira.exchange_open()))
     while True:
-        if trader.exchange_open():
+        if cira.exchange_open():
             one_instance()
             time.sleep(hour) # sleep time  

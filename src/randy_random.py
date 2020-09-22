@@ -39,10 +39,10 @@ def instance():
 def run_randy():
     """ runs randy random for ever """
     print(" [*] randy random is running ")
-    print(" [*] is NASDAQ open " + str(trader.exchange_open()))
+    print(" [*] is NASDAQ open " + str(cira.exchange_open()))
     hour = 60*60
     while (True):
-        if trader.exchange_open():
+        if cira.exchange_open():
             oneinstence_randy()
         time.sleep(random.randint(hour, hour*3))
         #time.sleep(hour)
