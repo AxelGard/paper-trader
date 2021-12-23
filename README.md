@@ -4,6 +4,8 @@ This is a python application that can trade on the stocks.
 
 The application is using the [Alpaca API](https://alpaca.markets/) for trading.
 
+**You should consider using [circa](https://github.com/AxelGard/cira) instead of paper-trader**
+
 [![Open this project in Cloud
 Shell](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/AxelGard/paper-trader)
 
