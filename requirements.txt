@@ -2,7 +2,7 @@ alpaca-trade-api==0.41
 asyncio-nats-client==0.10.0
 certifi==2024.7.4
 chardet==3.0.4
-idna==2.8
+idna==3.7
 numpy==1.22.0
 pandas==0.25.3
 python-dateutil==2.8.1
